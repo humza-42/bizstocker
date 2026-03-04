@@ -1,6 +1,7 @@
 import 'package:biz_stocker/Widgets/custom_button.dart';
 import 'package:biz_stocker/Widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:biz_stocker/Widgets/custom_drawer.dart';
 
 class OrdersScreen extends StatelessWidget {
   const OrdersScreen({super.key});
@@ -123,6 +124,7 @@ class OrdersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(currentRoute: '/orders'),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {

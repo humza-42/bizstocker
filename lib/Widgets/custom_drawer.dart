@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class CustomDrawer extends StatefulWidget {
-  const CustomDrawer({super.key});
+  final String currentRoute;
+
+  const CustomDrawer({super.key, required this.currentRoute});
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -14,6 +16,7 @@ class CustomDrawer extends StatefulWidget {
 class _CustomDrawerState extends State<CustomDrawer>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
+  String _selectedRoute = '';
 
   @override
   void initState() {
@@ -23,6 +26,17 @@ class _CustomDrawerState extends State<CustomDrawer>
       vsync: this,
     );
     _controller.forward();
+    _selectedRoute = widget.currentRoute;
+  }
+
+  @override
+  void didUpdateWidget(CustomDrawer oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.currentRoute != oldWidget.currentRoute) {
+      setState(() {
+        _selectedRoute = widget.currentRoute;
+      });
+    }
   }
 
   @override
@@ -31,8 +45,16 @@ class _CustomDrawerState extends State<CustomDrawer>
     super.dispose();
   }
 
+  void _handleItemSelect(String route) {
+    setState(() {
+      _selectedRoute = route;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    bool isDashboardSelected = _selectedRoute == '/dashboard';
+
     return Drawer(
       child: Container(
         color: Theme.of(context).scaffoldBackgroundColor,
@@ -46,7 +68,14 @@ class _CustomDrawerState extends State<CustomDrawer>
               child: ListView(
                 padding: EdgeInsets.zero,
                 children: [
-                  DashboardItem()
+                  DashboardItem(
+                        isSelected: isDashboardSelected,
+                        onSelect: (selected) {
+                          if (selected) {
+                            _handleItemSelect('/dashboard');
+                          }
+                        },
+                      )
                       .animate()
                       .fadeIn(duration: 300.ms)
                       .slideX(
@@ -65,7 +94,10 @@ class _CustomDrawerState extends State<CustomDrawer>
                         curve: Curves.easeOut,
                         delay: 100.ms,
                       ),
-                  PurchasesExpansionTile()
+                  PurchasesExpansionTile(
+                        selectedRoute: _selectedRoute,
+                        onSelect: _handleItemSelect,
+                      )
                       .animate()
                       .fadeIn(duration: 300.ms)
                       .slideX(

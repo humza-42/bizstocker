@@ -10,7 +10,7 @@ class DashboardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
+      drawer: const CustomDrawer(currentRoute: '/dashboard'),
       appBar: AppBar(
         title: Center(
           child: Padding(

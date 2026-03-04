@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../Widgets/custom_text_field.dart';
 import '../../Widgets/custom_button.dart';
+import '../../Widgets/custom_drawer.dart';
 
 class PurchaseScreen extends StatelessWidget {
   const PurchaseScreen({super.key});
@@ -123,6 +124,7 @@ class PurchaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const CustomDrawer(currentRoute: '/purchases'),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
