@@ -1,4 +1,4 @@
-import 'package:biz_stocker/Screens/dashboard_screen.dart';
+import '../Screens/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardItem extends StatelessWidget {

@@ -1,7 +1,7 @@
-import 'package:biz_stocker/Widgets/Dashboard_Screen/financial_stats_grid.dart';
-import 'package:biz_stocker/Widgets/Dashboard_Screen/quick_stats_grid.dart';
-import 'package:biz_stocker/Widgets/Dashboard_Screen/welcome_card.dart';
-import 'package:biz_stocker/Widgets/custom_drawer.dart';
+import '../Widgets/Dashboard_Screen/financial_stats_grid.dart';
+import '../Widgets/Dashboard_Screen/quick_stats_grid.dart';
+import '../Widgets/Dashboard_Screen/welcome_card.dart';
+import '../Widgets/custom_drawer.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {

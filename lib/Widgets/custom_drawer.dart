@@ -1,6 +1,6 @@
-import 'package:biz_stocker/Drawer_List_Contents/dashboard_item.dart';
-import 'package:biz_stocker/Widgets/drawer_header.dart';
-import 'package:biz_stocker/Drawer_List_Contents/expansion_purchase_tile.dart';
+import '../Drawer_List_Contents/dashboard_item.dart';
+import './drawer_header.dart';
+import '../Drawer_List_Contents/expansion_purchase_tile.dart';
 import 'package:flutter/material.dart';
 
 class CustomDrawer extends StatelessWidget {

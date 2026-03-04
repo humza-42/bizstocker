@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:biz_stocker/theme/color_scheme.dart';
+import '../../theme/color_scheme.dart';
 
 class WelcomeCard extends StatelessWidget {
   const WelcomeCard({super.key});

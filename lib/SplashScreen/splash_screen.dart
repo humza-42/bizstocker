@@ -1,6 +1,6 @@
 import 'dart:async';
-import 'package:biz_stocker/Screens/login_screen.dart';
-import 'package:biz_stocker/theme/color_scheme.dart';
+import '../Screens/login_screen.dart';
+import '../theme/color_scheme.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {

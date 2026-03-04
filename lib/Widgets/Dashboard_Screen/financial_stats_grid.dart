@@ -1,4 +1,4 @@
-import 'package:biz_stocker/Widgets/Dashboard_Screen/financial_card.dart';
+import './financial_card.dart';
 import 'package:flutter/material.dart';
 
 class FinancialStatsGrid extends StatelessWidget {

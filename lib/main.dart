@@ -1,6 +1,6 @@
-import 'package:biz_stocker/Screens/dashboard_screen.dart';
-import 'package:biz_stocker/SplashScreen/splash_screen.dart';
-import 'package:biz_stocker/theme/color_scheme.dart';
+import 'Screens/dashboard_screen.dart';
+import 'SplashScreen/splash_screen.dart';
+import 'theme/color_scheme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'BizStocker',
+      title: 'BizStockersdsads',
       theme: AppTheme.light(),
       darkTheme: AppTheme.dark(),
       themeMode: ThemeMode.light,

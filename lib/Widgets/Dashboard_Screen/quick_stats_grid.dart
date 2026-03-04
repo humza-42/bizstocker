@@ -1,4 +1,4 @@
-import 'package:biz_stocker/Widgets/Dashboard_Screen/stat_card.dart';
+import './stat_card.dart';
 import 'package:flutter/material.dart';
 
 class QuickStatsGrid extends StatelessWidget {
