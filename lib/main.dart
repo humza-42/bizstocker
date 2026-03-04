@@ -1,4 +1,8 @@
 import 'Screens/dashboard_screen.dart';
+import 'Screens/Purchases/purchase_screen.dart';
+import 'Screens/Purchases/orders_screen.dart';
+import 'Screens/Purchases/returns_screen.dart';
+import 'Screens/Purchases/vendors_screen.dart';
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +28,10 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/dashboard': (context) => const DashboardScreen(),
+        '/purchases': (context) => const PurchaseScreen(),
+        '/orders': (context) => const OrdersScreen(),
+        '/returns': (context) => const ReturnsScreen(),
+        '/vendors': (context) => const VendorsScreen(),
       },
     );
   }
