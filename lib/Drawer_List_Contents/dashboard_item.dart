@@ -32,12 +32,14 @@ class DashboardItem extends StatelessWidget {
           color: isSelected
               ? Theme.of(context).colorScheme.primary
               : Colors.grey,
+          size: 16,
         ),
         title: Text(
           'Dashboard',
           style: TextStyle(
             color: isSelected ? Theme.of(context).colorScheme.primary : null,
             fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
+            fontSize: 14.0,
           ),
         ),
         selected: isSelected,

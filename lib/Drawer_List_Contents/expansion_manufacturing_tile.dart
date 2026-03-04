@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
-class PurchasesExpansionTile extends StatefulWidget {
+class ManufacturingExpansionTile extends StatefulWidget {
   final String? selectedRoute;
   final ValueChanged<String> onSelect;
 
-  const PurchasesExpansionTile({
+  const ManufacturingExpansionTile({
     super.key,
     required this.selectedRoute,
     required this.onSelect,
   });
 
   @override
-  State<PurchasesExpansionTile> createState() => _PurchasesExpansionTileState();
+  State<ManufacturingExpansionTile> createState() =>
+      _ManufacturingExpansionTileState();
 }
 
-class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
+class _ManufacturingExpansionTileState extends State<ManufacturingExpansionTile>
     with SingleTickerProviderStateMixin {
   bool _isExpanded = false;
   late AnimationController _controller;
@@ -48,23 +49,23 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
 
   @override
   Widget build(BuildContext context) {
-    bool isPurchasesSelected = widget.selectedRoute == '/purchases';
-    bool isOrdersSelected = widget.selectedRoute == '/orders';
-    bool isReturnsSelected = widget.selectedRoute == '/returns';
-    bool isVendorsSelected = widget.selectedRoute == '/vendors';
+    bool isManufacturingSelected = widget.selectedRoute == '/manufacturing';
+    bool isProductionsSelected = widget.selectedRoute == '/productions';
+    bool isProductsSelected = widget.selectedRoute == '/products';
+    bool isBomSelected = widget.selectedRoute == '/bom';
 
     return Column(
       children: [
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
           decoration: BoxDecoration(
-            color: isPurchasesSelected
+            color: isManufacturingSelected
                 ? Theme.of(
                     context,
                   ).colorScheme.primaryContainer.withOpacity(0.3)
                 : Colors.transparent,
             borderRadius: BorderRadius.circular(8),
-            border: isPurchasesSelected
+            border: isManufacturingSelected
                 ? Border.all(
                     color: Theme.of(
                       context,
@@ -74,24 +75,24 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
           ),
           child: ListTile(
             leading: Icon(
-              Icons.shopping_cart,
-              color: isPurchasesSelected
+              Icons.factory,
+              color: isManufacturingSelected
                   ? Theme.of(context).colorScheme.primary
                   : Colors.grey,
               size: 16,
             ),
             title: GestureDetector(
               onTap: () {
-                widget.onSelect('/purchases');
-                Navigator.pushNamed(context, '/purchases');
+                widget.onSelect('/manufacturing');
+                Navigator.pushNamed(context, '/manufacturing');
               },
               child: Text(
-                'Purchases',
+                'Manufacturing',
                 style: TextStyle(
-                  color: isPurchasesSelected
+                  color: isManufacturingSelected
                       ? Theme.of(context).colorScheme.primary
                       : null,
-                  fontWeight: isPurchasesSelected
+                  fontWeight: isManufacturingSelected
                       ? FontWeight.bold
                       : FontWeight.normal,
                   fontSize: 14.0,
@@ -105,11 +106,11 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
               ),
               onPressed: _toggleExpanded,
             ),
-            selected: isPurchasesSelected,
+            selected: isManufacturingSelected,
             selectedTileColor: Colors.transparent,
             onTap: () {
-              widget.onSelect('/purchases');
-              Navigator.pushNamed(context, '/purchases');
+              widget.onSelect('/manufacturing');
+              Navigator.pushNamed(context, '/manufacturing');
             },
           ),
         ),
@@ -133,13 +134,13 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: isOrdersSelected
+                    color: isProductionsSelected
                         ? Theme.of(
                             context,
                           ).colorScheme.primaryContainer.withOpacity(0.3)
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
-                    border: isOrdersSelected
+                    border: isProductionsSelected
                         ? Border.all(
                             color: Theme.of(
                               context,
@@ -149,29 +150,29 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                   ),
                   child: ListTile(
                     leading: Icon(
-                      Icons.receipt_long,
-                      color: isOrdersSelected
+                      Icons.production_quantity_limits,
+                      color: isProductionsSelected
                           ? Theme.of(context).colorScheme.primary
                           : Colors.grey,
                       size: 16,
                     ),
                     title: Text(
-                      'Orders',
+                      'Productions',
                       style: TextStyle(
-                        color: isOrdersSelected
+                        color: isProductionsSelected
                             ? Theme.of(context).colorScheme.primary
                             : null,
-                        fontWeight: isOrdersSelected
+                        fontWeight: isProductionsSelected
                             ? FontWeight.bold
                             : FontWeight.normal,
                         fontSize: 16.0,
                       ),
                     ),
-                    selected: isOrdersSelected,
+                    selected: isProductionsSelected,
                     selectedTileColor: Colors.transparent,
                     onTap: () {
-                      widget.onSelect('/orders');
-                      Navigator.pushNamed(context, '/orders');
+                      widget.onSelect('/productions');
+                      Navigator.pushNamed(context, '/productions');
                     },
                   ),
                 ),
@@ -193,13 +194,13 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: isReturnsSelected
+                    color: isProductsSelected
                         ? Theme.of(
                             context,
                           ).colorScheme.primaryContainer.withOpacity(0.3)
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
-                    border: isReturnsSelected
+                    border: isProductsSelected
                         ? Border.all(
                             color: Theme.of(
                               context,
@@ -209,29 +210,29 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                   ),
                   child: ListTile(
                     leading: Icon(
-                      Icons.replay,
-                      color: isReturnsSelected
+                      Icons.inventory_2,
+                      color: isProductsSelected
                           ? Theme.of(context).colorScheme.primary
                           : Colors.grey,
                       size: 16,
                     ),
                     title: Text(
-                      'Returns',
+                      'Products',
                       style: TextStyle(
-                        color: isReturnsSelected
+                        color: isProductsSelected
                             ? Theme.of(context).colorScheme.primary
                             : null,
-                        fontWeight: isReturnsSelected
+                        fontWeight: isProductsSelected
                             ? FontWeight.bold
                             : FontWeight.normal,
                         fontSize: 16.0,
                       ),
                     ),
-                    selected: isReturnsSelected,
+                    selected: isProductsSelected,
                     selectedTileColor: Colors.transparent,
                     onTap: () {
-                      widget.onSelect('/returns');
-                      Navigator.pushNamed(context, '/returns');
+                      widget.onSelect('/products');
+                      Navigator.pushNamed(context, '/products');
                     },
                   ),
                 ),
@@ -253,13 +254,13 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                     vertical: 4,
                   ),
                   decoration: BoxDecoration(
-                    color: isVendorsSelected
+                    color: isBomSelected
                         ? Theme.of(
                             context,
                           ).colorScheme.primaryContainer.withOpacity(0.3)
                         : Colors.transparent,
                     borderRadius: BorderRadius.circular(8),
-                    border: isVendorsSelected
+                    border: isBomSelected
                         ? Border.all(
                             color: Theme.of(
                               context,
@@ -269,29 +270,29 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                   ),
                   child: ListTile(
                     leading: Icon(
-                      Icons.person,
-                      color: isVendorsSelected
+                      Icons.list_alt,
+                      color: isBomSelected
                           ? Theme.of(context).colorScheme.primary
                           : Colors.grey,
                       size: 16,
                     ),
                     title: Text(
-                      'Vendors',
+                      'BOM',
                       style: TextStyle(
-                        color: isVendorsSelected
+                        color: isBomSelected
                             ? Theme.of(context).colorScheme.primary
                             : null,
-                        fontWeight: isVendorsSelected
+                        fontWeight: isBomSelected
                             ? FontWeight.bold
                             : FontWeight.normal,
                         fontSize: 16.0,
                       ),
                     ),
-                    selected: isVendorsSelected,
+                    selected: isBomSelected,
                     selectedTileColor: Colors.transparent,
                     onTap: () {
-                      widget.onSelect('/vendors');
-                      Navigator.pushNamed(context, '/vendors');
+                      widget.onSelect('/bom');
+                      Navigator.pushNamed(context, '/bom');
                     },
                   ),
                 ),

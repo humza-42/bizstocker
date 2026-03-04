@@ -1,65 +1,54 @@
+import 'package:biz_stocker/Widgets/custom_button.dart';
+import 'package:biz_stocker/Widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
-import '../../Widgets/custom_text_field.dart';
-import '../../Widgets/custom_button.dart';
-import '../../Widgets/custom_drawer.dart';
+import 'package:biz_stocker/Widgets/custom_drawer.dart';
 
-class PurchaseScreen extends StatelessWidget {
-  const PurchaseScreen({super.key});
+class BomScreen extends StatelessWidget {
+  const BomScreen({super.key});
 
-  Widget _buildOrderRow({
-    required String orderNumber,
-    required String reference,
-    required String vendor,
-    required String orderDate,
-    required String total,
+  Widget _buildProductionRow({
+    required String id,
+    required String product,
+    required String date,
+    required String qty,
     required String status,
     required Color statusColor,
+    required String items,
   }) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
       child: Row(
         children: [
           SizedBox(
+            width: 60,
+            child: Text(
+              id,
+              style: const TextStyle(
+                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+          ),
+          SizedBox(
+            width: 150,
+            child: Text(
+              product,
+              style: const TextStyle(fontSize: 14.0, color: Colors.black),
+            ),
+          ),
+          SizedBox(
+            width: 120,
+            child: Text(
+              date,
+              style: const TextStyle(fontSize: 14.0, color: Colors.black),
+            ),
+          ),
+          SizedBox(
             width: 80,
             child: Text(
-              orderNumber,
-              style: const TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-          ),
-          SizedBox(
-            width: 100,
-            child: Text(
-              reference,
+              qty,
               style: const TextStyle(fontSize: 14.0, color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            width: 120,
-            child: Text(
-              vendor,
-              style: const TextStyle(fontSize: 14.0, color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            width: 120,
-            child: Text(
-              orderDate,
-              style: const TextStyle(fontSize: 14.0, color: Colors.black),
-            ),
-          ),
-          SizedBox(
-            width: 100,
-            child: Text(
-              total,
-              style: const TextStyle(
-                fontSize: 14.0,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
             ),
           ),
           SizedBox(
@@ -85,6 +74,13 @@ class PurchaseScreen extends StatelessWidget {
             ),
           ),
           SizedBox(
+            width: 80,
+            child: Text(
+              items,
+              style: const TextStyle(fontSize: 14.0, color: Colors.black),
+            ),
+          ),
+          SizedBox(
             width: 200,
             child: Align(
               alignment: Alignment.centerRight,
@@ -94,14 +90,7 @@ class PurchaseScreen extends StatelessWidget {
                   TextButton(
                     onPressed: () {},
                     child: const Text(
-                      'View',
-                      style: TextStyle(fontSize: 12.0, color: Colors.blue),
-                    ),
-                  ),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Edit',
+                      'View Items',
                       style: TextStyle(fontSize: 12.0, color: Colors.blue),
                     ),
                   ),
@@ -124,7 +113,7 @@ class PurchaseScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(currentRoute: '/purchases'),
+      drawer: const CustomDrawer(currentRoute: '/bom'),
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -132,7 +121,7 @@ class PurchaseScreen extends StatelessWidget {
           },
           icon: Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
-        title: const Text('Purchases'),
+        title: const Text('BOM'),
         elevation: 0,
       ),
       body: Container(
@@ -144,7 +133,7 @@ class PurchaseScreen extends StatelessWidget {
             children: [
               // Heading
               const Text(
-                'Purchase Orders',
+                'Production Orders',
                 style: TextStyle(
                   fontSize: 24.0,
                   fontWeight: FontWeight.bold,
@@ -170,10 +159,10 @@ class PurchaseScreen extends StatelessWidget {
               //         // Search Field
               //         // CustomTextField(
               //         //   hintText:
-              //         //       'Search by Order #, Voucher #, Reference #, Vendor...',
+              //         //       'Search by Production #, Product, Reference #...',
               //         //   fillColor: Colors.white,
               //         // ),
-              //         const SizedBox(height: 16.0),
+              //         // const SizedBox(height: 16.0),
 
               //         // Search Button
               //         // CustomButton(
@@ -181,7 +170,6 @@ class PurchaseScreen extends StatelessWidget {
               //         //     // Search functionality would be implemented here
               //         //   },
               //         //   text: 'SEARCH',
-
               //         //   foregroundColor: Colors.white,
               //         //   fontSize: 16.0,
               //         //   height: 45.0,
@@ -192,7 +180,7 @@ class PurchaseScreen extends StatelessWidget {
               // ),
               const SizedBox(height: 24.0),
 
-              // Purchase Orders Table Card
+              // Production Orders Table Card
               Card(
                 elevation: 4.0,
                 shape: RoundedRectangleBorder(
@@ -228,53 +216,42 @@ class PurchaseScreen extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     SizedBox(
+                                      width: 60,
+                                      child: Text(
+                                        'ID',
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey[600],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 150,
+                                      child: Text(
+                                        'PRODUCT',
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey[600],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 120,
+                                      child: Text(
+                                        'DATE',
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey[600],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
                                       width: 80,
                                       child: Text(
-                                        'ORDER #',
-                                        style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey[600],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        'REFERENCE',
-                                        style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey[600],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 120,
-                                      child: Text(
-                                        'VENDOR',
-                                        style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey[600],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 120,
-                                      child: Text(
-                                        'ORDER DATE',
-                                        style: TextStyle(
-                                          fontSize: 12.0,
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.grey[600],
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 100,
-                                      child: Text(
-                                        'TOTAL',
+                                        'QTY',
                                         style: TextStyle(
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.bold,
@@ -286,6 +263,17 @@ class PurchaseScreen extends StatelessWidget {
                                       width: 100,
                                       child: Text(
                                         'STATUS',
+                                        style: TextStyle(
+                                          fontSize: 12.0,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.grey[600],
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 80,
+                                      child: Text(
+                                        'ITEMS',
                                         style: TextStyle(
                                           fontSize: 12.0,
                                           fontWeight: FontWeight.bold,
@@ -313,34 +301,54 @@ class PurchaseScreen extends StatelessWidget {
 
                               // Table Rows
                               const Divider(height: 0),
-                              _buildOrderRow(
-                                orderNumber: '#19',
-                                reference: '-',
-                                vendor: 'sixth',
-                                orderDate: '2/25/2026',
-                                total: 'Rs 10.00',
-                                status: 'Received',
+                              _buildProductionRow(
+                                id: '35',
+                                product: 'one',
+                                date: '2/25/2026',
+                                qty: '5',
+                                status: 'completed',
                                 statusColor: Colors.green,
+                                items: '1',
                               ),
                               const Divider(height: 0),
-                              _buildOrderRow(
-                                orderNumber: '#18',
-                                reference: '-',
-                                vendor: 'fifth',
-                                orderDate: '2/25/2026',
-                                total: 'Rs 6.00',
-                                status: 'Received',
+                              _buildProductionRow(
+                                id: '31',
+                                product: 'steel',
+                                date: '2/20/2026',
+                                qty: '10',
+                                status: 'completed',
                                 statusColor: Colors.green,
+                                items: '3',
                               ),
                               const Divider(height: 0),
-                              _buildOrderRow(
-                                orderNumber: '#17',
-                                reference: '-',
-                                vendor: 'sixth',
-                                orderDate: '2/25/2026',
-                                total: 'Rs 40.00',
-                                status: 'Received',
+                              _buildProductionRow(
+                                id: '30',
+                                product: 'Product A',
+                                date: '2/20/2026',
+                                qty: '10',
+                                status: 'completed',
                                 statusColor: Colors.green,
+                                items: '3',
+                              ),
+                              const Divider(height: 0),
+                              _buildProductionRow(
+                                id: '20',
+                                product: 'Product-X',
+                                date: '2/20/2026',
+                                qty: '5',
+                                status: 'completed',
+                                statusColor: Colors.green,
+                                items: '3',
+                              ),
+                              const Divider(height: 0),
+                              _buildProductionRow(
+                                id: '27',
+                                product: 'Pro A',
+                                date: '2/19/2026',
+                                qty: '5',
+                                status: 'completed',
+                                statusColor: Colors.green,
+                                items: '1',
                               ),
                             ],
                           ),
@@ -352,7 +360,7 @@ class PurchaseScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(16.0),
                         child: const Center(
                           child: Text(
-                            'Showing 1 to 3 of 3 orders',
+                            'Showing 1 to 5 of 5 production orders',
                             style: TextStyle(
                               fontSize: 14.0,
                               color: Colors.grey,

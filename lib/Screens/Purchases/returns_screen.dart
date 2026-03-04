@@ -154,42 +154,42 @@ class ReturnsScreen extends StatelessWidget {
               const SizedBox(height: 24.0),
 
               // Search Section
-              Card(
-                elevation: 4.0,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12.0),
-                ),
-                child: Container(
-                  padding: const EdgeInsets.all(16.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: Theme.of(context).colorScheme.surface,
-                  ),
-                  child: Column(
-                    children: [
-                      // Search Field
-                      CustomTextField(
-                        hintText:
-                            'Search by Order #, Voucher #, Reference #, Vendor...',
-                        fillColor: Colors.white,
-                      ),
-                      const SizedBox(height: 16.0),
+              // Card(
+              //   elevation: 4.0,
+              //   shape: RoundedRectangleBorder(
+              //     borderRadius: BorderRadius.circular(12.0),
+              //   ),
+              //   child: Container(
+              //     padding: const EdgeInsets.all(16.0),
+              //     decoration: BoxDecoration(
+              //       borderRadius: BorderRadius.circular(12.0),
+              //       color: Theme.of(context).colorScheme.surface,
+              //     ),
+              //     child: Column(
+              //       children: [
+              //         // Search Field
+              //         // CustomTextField(
+              //         //   hintText:
+              //         //       'Search by Order #, Voucher #, Reference #, Vendor...',
+              //         //   fillColor: Colors.white,
+              //         // ),
+              //         const SizedBox(height: 16.0),
 
-                      // Search Button
-                      CustomButton(
-                        onPressed: () {
-                          // Search functionality would be implemented here
-                        },
-                        text: 'SEARCH',
+              //         // Search Button
+              //         // CustomButton(
+              //         //   onPressed: () {
+              //         //     // Search functionality would be implemented here
+              //         //   },
+              //         //   text: 'SEARCH',
 
-                        foregroundColor: Colors.white,
-                        fontSize: 16.0,
-                        height: 45.0,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              //         //   foregroundColor: Colors.white,
+              //         //   fontSize: 16.0,
+              //         //   height: 45.0,
+              //         // ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               const SizedBox(height: 24.0),
 
               // Purchase Orders Table Card

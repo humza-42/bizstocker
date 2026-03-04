@@ -3,6 +3,10 @@ import 'Screens/Purchases/purchase_screen.dart';
 import 'Screens/Purchases/orders_screen.dart';
 import 'Screens/Purchases/returns_screen.dart';
 import 'Screens/Purchases/vendors_screen.dart';
+import 'Screens/Manufacturing/manufacturing_screen.dart';
+import 'Screens/Manufacturing/productions_screen.dart';
+import 'Screens/Manufacturing/products_screen.dart';
+import 'Screens/Manufacturing/bom_screen.dart';
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -32,6 +36,10 @@ class MyApp extends StatelessWidget {
         '/orders': (context) => const OrdersScreen(),
         '/returns': (context) => const ReturnsScreen(),
         '/vendors': (context) => const VendorsScreen(),
+        '/manufacturing': (context) => const ManufacturingScreen(),
+        '/productions': (context) => const ProductionsScreen(),
+        '/products': (context) => const ProductsScreen(),
+        '/bom': (context) => const BomScreen(),
       },
     );
   }

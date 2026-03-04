@@ -1,6 +1,7 @@
 import '../Drawer_List_Contents/dashboard_item.dart';
 import './drawer_header.dart';
 import '../Drawer_List_Contents/expansion_purchase_tile.dart';
+import '../Drawer_List_Contents/expansion_manufacturing_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
@@ -107,7 +108,19 @@ class _CustomDrawerState extends State<CustomDrawer>
                         curve: Curves.easeOut,
                         delay: 200.ms,
                       ),
-                  // const ManufacturingExpansionTile(),
+                  ManufacturingExpansionTile(
+                        selectedRoute: _selectedRoute,
+                        onSelect: _handleItemSelect,
+                      )
+                      .animate()
+                      .fadeIn(duration: 300.ms)
+                      .slideX(
+                        duration: 500.ms,
+                        begin: -1.0,
+                        end: 0.0,
+                        curve: Curves.easeOut,
+                        delay: 300.ms,
+                      ),
                   // const SalesExpansionTile(),
                   // const InventoryExpansionTile(),
                   // const TransactionsExpansionTile(),
