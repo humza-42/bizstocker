@@ -1,7 +1,12 @@
+import 'package:biz_stocker/Screens/Sales/sales_screen.dart';
+import 'package:biz_stocker/Screens/Sales/orders_screen.dart' as sales_orders;
+import 'package:biz_stocker/Screens/Sales/customers_screen.dart';
+import 'package:biz_stocker/Screens/Sales/returns_screen.dart' as sales_returns;
+
 import 'Screens/dashboard_screen.dart';
 import 'Screens/Purchases/purchase_screen.dart';
-import 'Screens/Purchases/orders_screen.dart';
-import 'Screens/Purchases/returns_screen.dart';
+import 'Screens/Purchases/orders_screen.dart' as purchase_orders;
+import 'Screens/Purchases/returns_screen.dart' as purchase_returns;
 import 'Screens/Purchases/vendors_screen.dart';
 import 'Screens/Manufacturing/manufacturing_screen.dart';
 import 'Screens/Manufacturing/productions_screen.dart';
@@ -33,13 +38,18 @@ class MyApp extends StatelessWidget {
         '/': (context) => const SplashScreen(),
         '/dashboard': (context) => const DashboardScreen(),
         '/purchases': (context) => const PurchaseScreen(),
-        '/orders': (context) => const OrdersScreen(),
-        '/returns': (context) => const ReturnsScreen(),
+        '/purchase_orders': (context) => const purchase_orders.OrdersScreen(),
+        '/purchase_returns': (context) =>
+            const purchase_returns.ReturnsScreen(),
         '/vendors': (context) => const VendorsScreen(),
         '/manufacturing': (context) => const ManufacturingScreen(),
         '/productions': (context) => const ProductionsScreen(),
         '/products': (context) => const ProductsScreen(),
         '/bom': (context) => const BomScreen(),
+        '/sales_screen': (context) => const SalesScreen(),
+        '/sales_orders': (context) => const sales_orders.OrdersScreen(),
+        '/sales_customers': (context) => const CustomersScreen(),
+        '/sales_returns': (context) => const sales_returns.ReturnsScreen(),
       },
     );
   }

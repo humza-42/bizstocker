@@ -1,3 +1,5 @@
+import 'package:biz_stocker/Drawer_List_Contents/expansion_sales_tile.dart';
+
 import '../Drawer_List_Contents/dashboard_item.dart';
 import './drawer_header.dart';
 import '../Drawer_List_Contents/expansion_purchase_tile.dart';
@@ -121,7 +123,19 @@ class _CustomDrawerState extends State<CustomDrawer>
                         curve: Curves.easeOut,
                         delay: 300.ms,
                       ),
-                  // const SalesExpansionTile(),
+                  SalesExpansionTile(
+                        selectedRoute: _selectedRoute,
+                        onSelect: _handleItemSelect,
+                      )
+                      .animate()
+                      .fadeIn(duration: 300.ms)
+                      .slideX(
+                        duration: 500.ms,
+                        begin: -1.0,
+                        end: 0.0,
+                        curve: Curves.easeOut,
+                        delay: 400.ms,
+                      ),
                   // const InventoryExpansionTile(),
                   // const TransactionsExpansionTile(),
                   // const ExpensesExpansionTile(),
