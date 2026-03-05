@@ -73,6 +73,7 @@ class ManufacturingScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 80),
           SizedBox(
             width: 80,
             child: Text(
@@ -260,7 +261,7 @@ class ManufacturingScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 100,
+                                      width: 180,
                                       child: Text(
                                         'STATUS',
                                         style: TextStyle(
@@ -282,7 +283,7 @@ class ManufacturingScreen extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 200,
+                                      width: 140,
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: Text(
