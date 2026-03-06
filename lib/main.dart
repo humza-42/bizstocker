@@ -12,6 +12,12 @@ import 'Screens/Manufacturing/manufacturing_screen.dart';
 import 'Screens/Manufacturing/productions_screen.dart';
 import 'Screens/Manufacturing/products_screen.dart';
 import 'Screens/Manufacturing/bom_screen.dart';
+import 'Screens/Transactions/transaction_screen.dart';
+import 'Screens/Transactions/transaction_purchase_screen.dart';
+import 'Screens/Transactions/transaction_sales_screen.dart';
+import 'Screens/Transactions/transaction_sales_return_screen.dart';
+import 'Screens/Transactions/transaction_purchase_return_screen.dart';
+import 'Screens/Transactions/transaction_capital_investment_screen.dart';
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -50,6 +56,15 @@ class MyApp extends StatelessWidget {
         '/sales_orders': (context) => const sales_orders.OrdersScreen(),
         '/sales_customers': (context) => const CustomersScreen(),
         '/sales_returns': (context) => const sales_returns.ReturnsScreen(),
+        '/transactions_screen': (context) => const TransactionScreen(),
+        '/transaction_purchase': (context) => const TransactionPurchaseScreen(),
+        '/transaction_sales': (context) => const TransactionSalesScreen(),
+        '/transaction_sales_return': (context) =>
+            const TransactionSalesReturnScreen(),
+        '/transaction_purchase_return': (context) =>
+            const TransactionPurchaseReturnScreen(),
+        '/transaction_capital_investment': (context) =>
+            const TransactionCapitalInvestmentScreen(),
       },
     );
   }
