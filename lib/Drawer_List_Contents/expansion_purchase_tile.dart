@@ -49,8 +49,8 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
   @override
   Widget build(BuildContext context) {
     bool isPurchasesSelected = widget.selectedRoute == '/purchases';
-    bool isOrdersSelected = widget.selectedRoute == '/orders';
-    bool isReturnsSelected = widget.selectedRoute == '/returns';
+    bool isOrdersSelected = widget.selectedRoute == '/purchase_orders';
+    bool isReturnsSelected = widget.selectedRoute == '/purchase_returns';
     bool isVendorsSelected = widget.selectedRoute == '/vendors';
 
     return Column(
@@ -170,8 +170,8 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                     selected: isOrdersSelected,
                     selectedTileColor: Colors.transparent,
                     onTap: () {
-                      widget.onSelect('/orders');
-                      Navigator.pushNamed(context, '/orders');
+                      widget.onSelect('/purchase_orders');
+                      Navigator.pushNamed(context, '/purchase_orders');
                     },
                   ),
                 ),
@@ -230,8 +230,8 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
                     selected: isReturnsSelected,
                     selectedTileColor: Colors.transparent,
                     onTap: () {
-                      widget.onSelect('/returns');
-                      Navigator.pushNamed(context, '/returns');
+                      widget.onSelect('/purchase_returns');
+                      Navigator.pushNamed(context, '/purchase_returns');
                     },
                   ),
                 ),
