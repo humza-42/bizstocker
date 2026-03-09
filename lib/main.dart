@@ -18,6 +18,11 @@ import 'Screens/Transactions/transaction_sales_screen.dart';
 import 'Screens/Transactions/transaction_sales_return_screen.dart';
 import 'Screens/Transactions/transaction_purchase_return_screen.dart';
 import 'Screens/Transactions/transaction_capital_investment_screen.dart';
+import 'Screens/Expenses/expenses_screen.dart';
+import 'Screens/Expenses/all_expenses_screen.dart';
+import 'Screens/Expenses/general_expenses_screen.dart';
+import 'Screens/Expenses/manage_expense_groups_screen.dart';
+
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
 import 'package:flutter/material.dart';
@@ -65,6 +70,11 @@ class MyApp extends StatelessWidget {
             const TransactionPurchaseReturnScreen(),
         '/transaction_capital_investment': (context) =>
             const TransactionCapitalInvestmentScreen(),
+        '/expenses_screen': (context) => const ExpensesScreen(),
+        '/all_expenses_screen': (context) => const AllExpensesScreen(),
+        '/general_expenses_screen': (context) => const GeneralExpensesScreen(),
+        '/manage_expense_groups_screen': (context) =>
+            const ManageExpenseGroupsScreen(),
       },
     );
   }
