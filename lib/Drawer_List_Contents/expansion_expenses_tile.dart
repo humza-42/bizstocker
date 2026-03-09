@@ -136,7 +136,13 @@ class _ExpensesExpansionTileState extends State<ExpensesExpansionTile>
                   : null,
             ),
             child: ListTile(
-              leading: const SizedBox(width: 32),
+              leading: Icon(
+                Icons.receipt_long,
+                color: isAllExpensesSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
               title: GestureDetector(
                 onTap: () {
                   widget.onSelect('/all_expenses_screen');
@@ -186,7 +192,13 @@ class _ExpensesExpansionTileState extends State<ExpensesExpansionTile>
                   : null,
             ),
             child: ListTile(
-              leading: const SizedBox(width: 32),
+              leading: Icon(
+                Icons.point_of_sale,
+                color: isGeneralExpensesSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
               title: GestureDetector(
                 onTap: () {
                   widget.onSelect('/general_expenses_screen');
@@ -236,7 +248,13 @@ class _ExpensesExpansionTileState extends State<ExpensesExpansionTile>
                   : null,
             ),
             child: ListTile(
-              leading: const SizedBox(width: 32),
+              leading: Icon(
+                Icons.category,
+                color: isManageExpenseGroupsSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
               title: GestureDetector(
                 onTap: () {
                   widget.onSelect('/manage_expense_groups_screen');
