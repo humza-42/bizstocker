@@ -55,6 +55,7 @@ class TransactionScreen extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(width: 16), // Added spacing
           SizedBox(
             width: 120,
             child: Text(
@@ -166,7 +167,7 @@ class TransactionScreen extends StatelessWidget {
                       SingleChildScrollView(
                         scrollDirection: Axis.horizontal,
                         child: Container(
-                          width: 1100, // Minimum width to prevent crowding
+                          width: 1116, // Increased width to accommodate spacing
                           child: Column(
                             children: [
                               // Table Header
@@ -217,6 +218,7 @@ class TransactionScreen extends StatelessWidget {
                                         ),
                                       ),
                                     ),
+                                    const SizedBox(width: 16), // Added spacing
                                     SizedBox(
                                       width: 120,
                                       child: Text(
