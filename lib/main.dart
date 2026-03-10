@@ -1,24 +1,23 @@
-import 'package:biz_stocker/Screens/Sales/sales_screen.dart';
 import 'package:biz_stocker/Screens/Sales/orders_screen.dart' as sales_orders;
 import 'package:biz_stocker/Screens/Sales/customers_screen.dart';
 import 'package:biz_stocker/Screens/Sales/returns_screen.dart' as sales_returns;
 
 import 'Screens/dashboard_screen.dart';
-import 'Screens/Purchases/purchase_screen.dart';
+
 import 'Screens/Purchases/orders_screen.dart' as purchase_orders;
 import 'Screens/Purchases/returns_screen.dart' as purchase_returns;
 import 'Screens/Purchases/vendors_screen.dart';
-import 'Screens/Manufacturing/manufacturing_screen.dart';
+
 import 'Screens/Manufacturing/productions_screen.dart';
 import 'Screens/Manufacturing/products_screen.dart';
 import 'Screens/Manufacturing/bom_screen.dart';
-import 'Screens/Transactions/transaction_screen.dart';
+
 import 'Screens/Transactions/transaction_purchase_screen.dart';
 import 'Screens/Transactions/transaction_sales_screen.dart';
 import 'Screens/Transactions/transaction_sales_return_screen.dart';
 import 'Screens/Transactions/transaction_purchase_return_screen.dart';
 import 'Screens/Transactions/transaction_capital_investment_screen.dart';
-import 'Screens/Expenses/expenses_screen.dart';
+
 import 'Screens/Expenses/all_expenses_screen.dart';
 import 'Screens/Expenses/general_expenses_screen.dart';
 import 'Screens/Expenses/manage_expense_groups_screen.dart';
@@ -28,6 +27,10 @@ import 'Screens/Reports/Operational_Reports/customer_balances_screen.dart';
 import 'Screens/Reports/Operational_Reports/customer_insights_screen.dart';
 import 'Screens/Reports/Operational_Reports/products_insights_screen.dart';
 import 'Screens/Reports/Operational_Reports/top_selling_products_screen.dart';
+import 'Screens/Reports/Financial_Reports/income_statement_screen.dart';
+import 'Screens/Reports/Financial_Reports/balance_sheet_screen.dart';
+import 'Screens/Reports/Financial_Reports/cash_flow_statement_screen.dart';
+import 'Screens/Reports/Financial_Reports/trial_balance_screen.dart';
 
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
@@ -87,6 +90,10 @@ class MyApp extends StatelessWidget {
         '/customer_insights': (context) => const CustomerInsightsScreen(),
         '/products_insights': (context) => const ProductsInsightsScreen(),
         '/top_selling_products': (context) => const TopSellingProductsScreen(),
+        '/income_statement': (context) => const IncomeStatementScreen(),
+        '/balance_sheet': (context) => const BalanceSheetScreen(),
+        '/cash_flow_statement': (context) => const CashFlowStatementScreen(),
+        '/trial_balance': (context) => const TrialBalanceScreen(),
       },
     );
   }

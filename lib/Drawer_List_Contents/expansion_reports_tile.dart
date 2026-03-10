@@ -19,6 +19,7 @@ class _ReportsExpansionTileState extends State<ReportsExpansionTile>
     with SingleTickerProviderStateMixin {
   bool _isExpanded = false;
   bool _isOperationalExpanded = false;
+  bool _isFinancialStatementsExpanded = false;
   late AnimationController _controller;
 
   @override
@@ -251,6 +252,331 @@ class _ReportsExpansionTileState extends State<ReportsExpansionTile>
                   ),
                 ),
               ),
+              Animate(
+                effects: [
+                  FadeEffect(duration: 200.ms),
+                  SlideEffect(
+                    duration: 300.ms,
+                    begin: const Offset(-0.5, 0),
+                    end: const Offset(0, 0),
+                    curve: Curves.easeOut,
+                    delay: 150.ms,
+                  ),
+                ],
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 16,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: isFinancialStatementsSelected
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primaryContainer.withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: isFinancialStatementsSelected
+                        ? Border.all(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.5),
+                          )
+                        : null,
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.account_balance_wallet,
+                      color: isFinancialStatementsSelected
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey,
+                      size: 16,
+                    ),
+                    title: Text(
+                      'Financial Statements',
+                      style: TextStyle(
+                        color: isFinancialStatementsSelected
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                        fontWeight: isFinancialStatementsSelected
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    selected: isFinancialStatementsSelected,
+                    selectedTileColor: Colors.transparent,
+                    trailing: Icon(
+                      _isFinancialStatementsExpanded
+                          ? Icons.expand_less
+                          : Icons.expand_more,
+                      color: Colors.grey,
+                      size: 16,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        _isFinancialStatementsExpanded =
+                            !_isFinancialStatementsExpanded;
+                        widget.onSelect('/financial_statements');
+                      });
+                    },
+                  ),
+                ),
+              ),
+              if (_isFinancialStatementsExpanded)
+                Column(
+                  children: [
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 200.ms),
+                        SlideEffect(
+                          duration: 300.ms,
+                          begin: const Offset(-0.5, 0),
+                          end: const Offset(0, 0),
+                          curve: Curves.easeOut,
+                          delay: 50.ms,
+                        ),
+                      ],
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: widget.selectedRoute == '/income_statement'
+                              ? Theme.of(
+                                  context,
+                                ).colorScheme.primaryContainer.withOpacity(0.3)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                          border: widget.selectedRoute == '/income_statement'
+                              ? Border.all(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.primary.withOpacity(0.5),
+                                )
+                              : null,
+                        ),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.trending_up,
+                            color: widget.selectedRoute == '/income_statement'
+                                ? Theme.of(context).colorScheme.primary
+                                : Colors.grey,
+                            size: 16,
+                          ),
+                          title: Text(
+                            'Income Statement',
+                            style: TextStyle(
+                              color: widget.selectedRoute == '/income_statement'
+                                  ? Theme.of(context).colorScheme.primary
+                                  : null,
+                              fontWeight:
+                                  widget.selectedRoute == '/income_statement'
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          selected: widget.selectedRoute == '/income_statement',
+                          selectedTileColor: Colors.transparent,
+                          onTap: () {
+                            widget.onSelect('/income_statement');
+                            Navigator.pushNamed(context, '/income_statement');
+                          },
+                        ),
+                      ),
+                    ),
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 200.ms),
+                        SlideEffect(
+                          duration: 300.ms,
+                          begin: const Offset(-0.5, 0),
+                          end: const Offset(0, 0),
+                          curve: Curves.easeOut,
+                          delay: 100.ms,
+                        ),
+                      ],
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: widget.selectedRoute == '/balance_sheet'
+                              ? Theme.of(
+                                  context,
+                                ).colorScheme.primaryContainer.withOpacity(0.3)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                          border: widget.selectedRoute == '/balance_sheet'
+                              ? Border.all(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.primary.withOpacity(0.5),
+                                )
+                              : null,
+                        ),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.account_balance,
+                            color: widget.selectedRoute == '/balance_sheet'
+                                ? Theme.of(context).colorScheme.primary
+                                : Colors.grey,
+                            size: 16,
+                          ),
+                          title: Text(
+                            'Balance Sheet',
+                            style: TextStyle(
+                              color: widget.selectedRoute == '/balance_sheet'
+                                  ? Theme.of(context).colorScheme.primary
+                                  : null,
+                              fontWeight:
+                                  widget.selectedRoute == '/balance_sheet'
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          selected: widget.selectedRoute == '/balance_sheet',
+                          selectedTileColor: Colors.transparent,
+                          onTap: () {
+                            widget.onSelect('/balance_sheet');
+                            Navigator.pushNamed(context, '/balance_sheet');
+                          },
+                        ),
+                      ),
+                    ),
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 200.ms),
+                        SlideEffect(
+                          duration: 300.ms,
+                          begin: const Offset(-0.5, 0),
+                          end: const Offset(0, 0),
+                          curve: Curves.easeOut,
+                          delay: 150.ms,
+                        ),
+                      ],
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: widget.selectedRoute == '/cash_flow_statement'
+                              ? Theme.of(
+                                  context,
+                                ).colorScheme.primaryContainer.withOpacity(0.3)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                          border: widget.selectedRoute == '/cash_flow_statement'
+                              ? Border.all(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.primary.withOpacity(0.5),
+                                )
+                              : null,
+                        ),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.monetization_on,
+                            color:
+                                widget.selectedRoute == '/cash_flow_statement'
+                                ? Theme.of(context).colorScheme.primary
+                                : Colors.grey,
+                            size: 16,
+                          ),
+                          title: Text(
+                            'Cash Flow Statement',
+                            style: TextStyle(
+                              color:
+                                  widget.selectedRoute == '/cash_flow_statement'
+                                  ? Theme.of(context).colorScheme.primary
+                                  : null,
+                              fontWeight:
+                                  widget.selectedRoute == '/cash_flow_statement'
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          selected:
+                              widget.selectedRoute == '/cash_flow_statement',
+                          selectedTileColor: Colors.transparent,
+                          onTap: () {
+                            widget.onSelect('/cash_flow_statement');
+                            Navigator.pushNamed(
+                              context,
+                              '/cash_flow_statement',
+                            );
+                          },
+                        ),
+                      ),
+                    ),
+                    Animate(
+                      effects: [
+                        FadeEffect(duration: 200.ms),
+                        SlideEffect(
+                          duration: 300.ms,
+                          begin: const Offset(-0.5, 0),
+                          end: const Offset(0, 0),
+                          curve: Curves.easeOut,
+                          delay: 200.ms,
+                        ),
+                      ],
+                      child: Container(
+                        margin: const EdgeInsets.symmetric(
+                          horizontal: 32,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: widget.selectedRoute == '/trial_balance'
+                              ? Theme.of(
+                                  context,
+                                ).colorScheme.primaryContainer.withOpacity(0.3)
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(8),
+                          border: widget.selectedRoute == '/trial_balance'
+                              ? Border.all(
+                                  color: Theme.of(
+                                    context,
+                                  ).colorScheme.primary.withOpacity(0.5),
+                                )
+                              : null,
+                        ),
+                        child: ListTile(
+                          leading: Icon(
+                            Icons.receipt_long,
+                            color: widget.selectedRoute == '/trial_balance'
+                                ? Theme.of(context).colorScheme.primary
+                                : Colors.grey,
+                            size: 16,
+                          ),
+                          title: Text(
+                            'Trial Balance',
+                            style: TextStyle(
+                              color: widget.selectedRoute == '/trial_balance'
+                                  ? Theme.of(context).colorScheme.primary
+                                  : null,
+                              fontWeight:
+                                  widget.selectedRoute == '/trial_balance'
+                                  ? FontWeight.bold
+                                  : FontWeight.normal,
+                              fontSize: 16.0,
+                            ),
+                          ),
+                          selected: widget.selectedRoute == '/trial_balance',
+                          selectedTileColor: Colors.transparent,
+                          onTap: () {
+                            widget.onSelect('/trial_balance');
+                            Navigator.pushNamed(context, '/trial_balance');
+                          },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               if (_isOperationalExpanded)
                 Column(
                   children: [
