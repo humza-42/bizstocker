@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class ManufacturingExpansionTile extends StatefulWidget {
   final String? selectedRoute;
@@ -114,191 +113,156 @@ class _ManufacturingExpansionTileState extends State<ManufacturingExpansionTile>
             },
           ),
         ),
-        if (_isExpanded)
-          Column(
-            children: [
-              Animate(
-                effects: [
-                  FadeEffect(duration: 200.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(-0.5, 0),
-                    end: const Offset(0, 0),
-                    curve: Curves.easeOut,
-                    delay: 50.ms,
-                  ),
-                ],
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isProductionsSelected
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: isProductionsSelected
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.production_quantity_limits,
-                      color: isProductionsSelected
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Productions',
-                      style: TextStyle(
-                        color: isProductionsSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: isProductionsSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: isProductionsSelected,
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/productions');
-                      Navigator.pushNamed(context, '/productions');
-                    },
-                  ),
+        // Productions
+        SizeTransition(
+          sizeFactor: _controller,
+          axisAlignment: -1.0,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              color: isProductionsSelected
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer.withOpacity(0.3)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: isProductionsSelected
+                  ? Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    )
+                  : null,
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.production_quantity_limits,
+                color: isProductionsSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
+              title: Text(
+                'Productions',
+                style: TextStyle(
+                  color: isProductionsSelected
+                      ? Theme.of(context).colorScheme.primary
+                      : null,
+                  fontWeight: isProductionsSelected
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: 16.0,
                 ),
               ),
-              Animate(
-                effects: [
-                  FadeEffect(duration: 200.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(-0.5, 0),
-                    end: const Offset(0, 0),
-                    curve: Curves.easeOut,
-                    delay: 100.ms,
-                  ),
-                ],
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isProductsSelected
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: isProductsSelected
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.inventory_2,
-                      color: isProductsSelected
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Products',
-                      style: TextStyle(
-                        color: isProductsSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: isProductsSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: isProductsSelected,
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/products');
-                      Navigator.pushNamed(context, '/products');
-                    },
-                  ),
-                ),
-              ),
-              Animate(
-                effects: [
-                  FadeEffect(duration: 200.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(-0.5, 0),
-                    end: const Offset(0, 0),
-                    curve: Curves.easeOut,
-                    delay: 150.ms,
-                  ),
-                ],
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isBomSelected
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: isBomSelected
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.list_alt,
-                      color: isBomSelected
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'BOM',
-                      style: TextStyle(
-                        color: isBomSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: isBomSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: isBomSelected,
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/bom');
-                      Navigator.pushNamed(context, '/bom');
-                    },
-                  ),
-                ),
-              ),
-            ],
+              selected: isProductionsSelected,
+              selectedTileColor: Colors.transparent,
+              onTap: () {
+                widget.onSelect('/productions');
+                Navigator.pushNamed(context, '/productions');
+              },
+            ),
           ),
+        ),
+        // Products
+        SizeTransition(
+          sizeFactor: _controller,
+          axisAlignment: -1.0,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              color: isProductsSelected
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer.withOpacity(0.3)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: isProductsSelected
+                  ? Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    )
+                  : null,
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.inventory_2,
+                color: isProductsSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
+              title: Text(
+                'Products',
+                style: TextStyle(
+                  color: isProductsSelected
+                      ? Theme.of(context).colorScheme.primary
+                      : null,
+                  fontWeight: isProductsSelected
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: 16.0,
+                ),
+              ),
+              selected: isProductsSelected,
+              selectedTileColor: Colors.transparent,
+              onTap: () {
+                widget.onSelect('/products');
+                Navigator.pushNamed(context, '/products');
+              },
+            ),
+          ),
+        ),
+        // BOM
+        SizeTransition(
+          sizeFactor: _controller,
+          axisAlignment: -1.0,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              color: isBomSelected
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer.withOpacity(0.3)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: isBomSelected
+                  ? Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    )
+                  : null,
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.list_alt,
+                color: isBomSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
+              title: Text(
+                'BOM',
+                style: TextStyle(
+                  color: isBomSelected
+                      ? Theme.of(context).colorScheme.primary
+                      : null,
+                  fontWeight: isBomSelected
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: 16.0,
+                ),
+              ),
+              selected: isBomSelected,
+              selectedTileColor: Colors.transparent,
+              onTap: () {
+                widget.onSelect('/bom');
+                Navigator.pushNamed(context, '/bom');
+              },
+            ),
+          ),
+        ),
       ],
     );
   }

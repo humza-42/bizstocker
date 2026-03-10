@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_animate/flutter_animate.dart';
 
 class PurchasesExpansionTile extends StatefulWidget {
   final String? selectedRoute;
@@ -113,191 +112,156 @@ class _PurchasesExpansionTileState extends State<PurchasesExpansionTile>
             },
           ),
         ),
-        if (_isExpanded)
-          Column(
-            children: [
-              Animate(
-                effects: [
-                  FadeEffect(duration: 200.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(-0.5, 0),
-                    end: const Offset(0, 0),
-                    curve: Curves.easeOut,
-                    delay: 50.ms,
-                  ),
-                ],
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isOrdersSelected
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: isOrdersSelected
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.receipt_long,
-                      color: isOrdersSelected
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Orders',
-                      style: TextStyle(
-                        color: isOrdersSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: isOrdersSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: isOrdersSelected,
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/purchase_orders');
-                      Navigator.pushNamed(context, '/purchase_orders');
-                    },
-                  ),
+        // Orders
+        SizeTransition(
+          sizeFactor: _controller,
+          axisAlignment: -1.0,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              color: isOrdersSelected
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer.withOpacity(0.3)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: isOrdersSelected
+                  ? Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    )
+                  : null,
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.receipt_long,
+                color: isOrdersSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
+              title: Text(
+                'Orders',
+                style: TextStyle(
+                  color: isOrdersSelected
+                      ? Theme.of(context).colorScheme.primary
+                      : null,
+                  fontWeight: isOrdersSelected
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: 16.0,
                 ),
               ),
-              Animate(
-                effects: [
-                  FadeEffect(duration: 200.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(-0.5, 0),
-                    end: const Offset(0, 0),
-                    curve: Curves.easeOut,
-                    delay: 100.ms,
-                  ),
-                ],
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isReturnsSelected
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: isReturnsSelected
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.replay,
-                      color: isReturnsSelected
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Returns',
-                      style: TextStyle(
-                        color: isReturnsSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: isReturnsSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: isReturnsSelected,
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/purchase_returns');
-                      Navigator.pushNamed(context, '/purchase_returns');
-                    },
-                  ),
-                ),
-              ),
-              Animate(
-                effects: [
-                  FadeEffect(duration: 200.ms),
-                  SlideEffect(
-                    duration: 300.ms,
-                    begin: const Offset(-0.5, 0),
-                    end: const Offset(0, 0),
-                    curve: Curves.easeOut,
-                    delay: 150.ms,
-                  ),
-                ],
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: isVendorsSelected
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: isVendorsSelected
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.person,
-                      color: isVendorsSelected
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Vendors',
-                      style: TextStyle(
-                        color: isVendorsSelected
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: isVendorsSelected
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: isVendorsSelected,
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/vendors');
-                      Navigator.pushNamed(context, '/vendors');
-                    },
-                  ),
-                ),
-              ),
-            ],
+              selected: isOrdersSelected,
+              selectedTileColor: Colors.transparent,
+              onTap: () {
+                widget.onSelect('/purchase_orders');
+                Navigator.pushNamed(context, '/purchase_orders');
+              },
+            ),
           ),
+        ),
+        // Returns
+        SizeTransition(
+          sizeFactor: _controller,
+          axisAlignment: -1.0,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              color: isReturnsSelected
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer.withOpacity(0.3)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: isReturnsSelected
+                  ? Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    )
+                  : null,
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.replay,
+                color: isReturnsSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
+              title: Text(
+                'Returns',
+                style: TextStyle(
+                  color: isReturnsSelected
+                      ? Theme.of(context).colorScheme.primary
+                      : null,
+                  fontWeight: isReturnsSelected
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: 16.0,
+                ),
+              ),
+              selected: isReturnsSelected,
+              selectedTileColor: Colors.transparent,
+              onTap: () {
+                widget.onSelect('/purchase_returns');
+                Navigator.pushNamed(context, '/purchase_returns');
+              },
+            ),
+          ),
+        ),
+        // Vendors
+        SizeTransition(
+          sizeFactor: _controller,
+          axisAlignment: -1.0,
+          child: Container(
+            margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+            decoration: BoxDecoration(
+              color: isVendorsSelected
+                  ? Theme.of(
+                      context,
+                    ).colorScheme.primaryContainer.withOpacity(0.3)
+                  : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+              border: isVendorsSelected
+                  ? Border.all(
+                      color: Theme.of(
+                        context,
+                      ).colorScheme.primary.withOpacity(0.5),
+                    )
+                  : null,
+            ),
+            child: ListTile(
+              leading: Icon(
+                Icons.person,
+                color: isVendorsSelected
+                    ? Theme.of(context).colorScheme.primary
+                    : Colors.grey,
+                size: 16,
+              ),
+              title: Text(
+                'Vendors',
+                style: TextStyle(
+                  color: isVendorsSelected
+                      ? Theme.of(context).colorScheme.primary
+                      : null,
+                  fontWeight: isVendorsSelected
+                      ? FontWeight.bold
+                      : FontWeight.normal,
+                  fontSize: 16.0,
+                ),
+              ),
+              selected: isVendorsSelected,
+              selectedTileColor: Colors.transparent,
+              onTap: () {
+                widget.onSelect('/vendors');
+                Navigator.pushNamed(context, '/vendors');
+              },
+            ),
+          ),
+        ),
       ],
     );
   }
