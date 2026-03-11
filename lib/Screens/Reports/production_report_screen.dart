@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../Widgets/custom_drawer.dart';
+import '../../Widgets/Reports/production_report_card.dart';
 
 class ProductionReportScreen extends StatelessWidget {
   const ProductionReportScreen({super.key});
@@ -9,22 +10,19 @@ class ProductionReportScreen extends StatelessWidget {
     return Scaffold(
       drawer: const CustomDrawer(currentRoute: '/production_report'),
       appBar: AppBar(
-        title: Center(
-          child: Padding(
-            padding: const EdgeInsets.only(right: 25),
-            child: const Text(
-              'Production Report',
-              style: TextStyle(color: Colors.black),
-            ),
-          ),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.arrow_back_ios, color: Colors.black),
         ),
+        title: const Text('Production Report'),
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        color: Theme.of(context).colorScheme.surfaceContainer,
-        child: SingleChildScrollView(
+      body: SingleChildScrollView(
+        child: Container(
+          padding: const EdgeInsets.all(16.0),
+          color: Theme.of(context).colorScheme.surfaceContainer,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -33,10 +31,7 @@ class ProductionReportScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
               const SizedBox(height: 16.0),
-              Text(
-                'This screen will display production report data.',
-                style: Theme.of(context).textTheme.bodyMedium,
-              ),
+              const ProductionReportCard(),
             ],
           ),
         ),

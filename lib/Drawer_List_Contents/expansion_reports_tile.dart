@@ -255,6 +255,273 @@ class _ReportsExpansionTileState extends State<ReportsExpansionTile>
             ),
           ),
         ),
+        // Operational Reports Children
+        if (_isOperationalExpanded)
+          Column(
+            children: [
+              SizeTransition(
+                sizeFactor: _operationalController,
+                axisAlignment: -1.0,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: widget.selectedRoute == '/vendors_insights'
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primaryContainer.withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: widget.selectedRoute == '/vendors_insights'
+                        ? Border.all(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.5),
+                          )
+                        : null,
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.store,
+                      color: widget.selectedRoute == '/vendors_insights'
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey,
+                      size: 16,
+                    ),
+                    title: Text(
+                      'Vendors Insights',
+                      style: TextStyle(
+                        color: widget.selectedRoute == '/vendors_insights'
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                        fontWeight: widget.selectedRoute == '/vendors_insights'
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    selected: widget.selectedRoute == '/vendors_insights',
+                    selectedTileColor: Colors.transparent,
+                    onTap: () {
+                      widget.onSelect('/vendors_insights');
+                      Navigator.pushNamed(context, '/vendors_insights');
+                    },
+                  ),
+                ),
+              ),
+              SizeTransition(
+                sizeFactor: _operationalController,
+                axisAlignment: -1.0,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: widget.selectedRoute == '/customer_balances'
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primaryContainer.withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: widget.selectedRoute == '/customer_balances'
+                        ? Border.all(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.5),
+                          )
+                        : null,
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.payment,
+                      color: widget.selectedRoute == '/customer_balances'
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey,
+                      size: 16,
+                    ),
+                    title: Text(
+                      'Customer Balances',
+                      style: TextStyle(
+                        color: widget.selectedRoute == '/customer_balances'
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                        fontWeight: widget.selectedRoute == '/customer_balances'
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    selected: widget.selectedRoute == '/customer_balances',
+                    selectedTileColor: Colors.transparent,
+                    onTap: () {
+                      widget.onSelect('/customer_balances');
+                      Navigator.pushNamed(context, '/customer_balances');
+                    },
+                  ),
+                ),
+              ),
+              SizeTransition(
+                sizeFactor: _operationalController,
+                axisAlignment: -1.0,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: widget.selectedRoute == '/customer_insights'
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primaryContainer.withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: widget.selectedRoute == '/customer_insights'
+                        ? Border.all(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.5),
+                          )
+                        : null,
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.people,
+                      color: widget.selectedRoute == '/customer_insights'
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey,
+                      size: 16,
+                    ),
+                    title: Text(
+                      'Customer Insights',
+                      style: TextStyle(
+                        color: widget.selectedRoute == '/customer_insights'
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                        fontWeight: widget.selectedRoute == '/customer_insights'
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    selected: widget.selectedRoute == '/customer_insights',
+                    selectedTileColor: Colors.transparent,
+                    onTap: () {
+                      widget.onSelect('/customer_insights');
+                      Navigator.pushNamed(context, '/customer_insights');
+                    },
+                  ),
+                ),
+              ),
+              SizeTransition(
+                sizeFactor: _operationalController,
+                axisAlignment: -1.0,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: widget.selectedRoute == '/products_insights'
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primaryContainer.withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: widget.selectedRoute == '/products_insights'
+                        ? Border.all(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.5),
+                          )
+                        : null,
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.inventory_2,
+                      color: widget.selectedRoute == '/products_insights'
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey,
+                      size: 16,
+                    ),
+                    title: Text(
+                      'Products Insights',
+                      style: TextStyle(
+                        color: widget.selectedRoute == '/products_insights'
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                        fontWeight: widget.selectedRoute == '/products_insights'
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    selected: widget.selectedRoute == '/products_insights',
+                    selectedTileColor: Colors.transparent,
+                    onTap: () {
+                      widget.onSelect('/products_insights');
+                      Navigator.pushNamed(context, '/products_insights');
+                    },
+                  ),
+                ),
+              ),
+              SizeTransition(
+                sizeFactor: _operationalController,
+                axisAlignment: -1.0,
+                child: Container(
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 32,
+                    vertical: 4,
+                  ),
+                  decoration: BoxDecoration(
+                    color: widget.selectedRoute == '/top_selling_products'
+                        ? Theme.of(
+                            context,
+                          ).colorScheme.primaryContainer.withOpacity(0.3)
+                        : Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: widget.selectedRoute == '/top_selling_products'
+                        ? Border.all(
+                            color: Theme.of(
+                              context,
+                            ).colorScheme.primary.withOpacity(0.5),
+                          )
+                        : null,
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.trending_up,
+                      color: widget.selectedRoute == '/top_selling_products'
+                          ? Theme.of(context).colorScheme.primary
+                          : Colors.grey,
+                      size: 16,
+                    ),
+                    title: Text(
+                      'Top-Selling Products',
+                      style: TextStyle(
+                        color: widget.selectedRoute == '/top_selling_products'
+                            ? Theme.of(context).colorScheme.primary
+                            : null,
+                        fontWeight:
+                            widget.selectedRoute == '/top_selling_products'
+                            ? FontWeight.bold
+                            : FontWeight.normal,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    selected: widget.selectedRoute == '/top_selling_products',
+                    selectedTileColor: Colors.transparent,
+                    onTap: () {
+                      widget.onSelect('/top_selling_products');
+                      Navigator.pushNamed(context, '/top_selling_products');
+                    },
+                  ),
+                ),
+              ),
+            ],
+          ),
         // Financial Statements
         SizeTransition(
           sizeFactor: _controller,
@@ -518,273 +785,6 @@ class _ReportsExpansionTileState extends State<ReportsExpansionTile>
                     onTap: () {
                       widget.onSelect('/trial_balance');
                       Navigator.pushNamed(context, '/trial_balance');
-                    },
-                  ),
-                ),
-              ),
-            ],
-          ),
-        // Operational Reports Children
-        if (_isOperationalExpanded)
-          Column(
-            children: [
-              SizeTransition(
-                sizeFactor: _operationalController,
-                axisAlignment: -1.0,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: widget.selectedRoute == '/vendors_insights'
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: widget.selectedRoute == '/vendors_insights'
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.store,
-                      color: widget.selectedRoute == '/vendors_insights'
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Vendors Insights',
-                      style: TextStyle(
-                        color: widget.selectedRoute == '/vendors_insights'
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: widget.selectedRoute == '/vendors_insights'
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: widget.selectedRoute == '/vendors_insights',
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/vendors_insights');
-                      Navigator.pushNamed(context, '/vendors_insights');
-                    },
-                  ),
-                ),
-              ),
-              SizeTransition(
-                sizeFactor: _operationalController,
-                axisAlignment: -1.0,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: widget.selectedRoute == '/customer_balances'
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: widget.selectedRoute == '/customer_balances'
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.payment,
-                      color: widget.selectedRoute == '/customer_balances'
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Customer Balances',
-                      style: TextStyle(
-                        color: widget.selectedRoute == '/customer_balances'
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: widget.selectedRoute == '/customer_balances'
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: widget.selectedRoute == '/customer_balances',
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/customer_balances');
-                      Navigator.pushNamed(context, '/customer_balances');
-                    },
-                  ),
-                ),
-              ),
-              SizeTransition(
-                sizeFactor: _operationalController,
-                axisAlignment: -1.0,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: widget.selectedRoute == '/customer_insights'
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: widget.selectedRoute == '/customer_insights'
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.people,
-                      color: widget.selectedRoute == '/customer_insights'
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Customer Insights',
-                      style: TextStyle(
-                        color: widget.selectedRoute == '/customer_insights'
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: widget.selectedRoute == '/customer_insights'
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: widget.selectedRoute == '/customer_insights',
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/customer_insights');
-                      Navigator.pushNamed(context, '/customer_insights');
-                    },
-                  ),
-                ),
-              ),
-              SizeTransition(
-                sizeFactor: _operationalController,
-                axisAlignment: -1.0,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: widget.selectedRoute == '/products_insights'
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: widget.selectedRoute == '/products_insights'
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.inventory_2,
-                      color: widget.selectedRoute == '/products_insights'
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Products Insights',
-                      style: TextStyle(
-                        color: widget.selectedRoute == '/products_insights'
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight: widget.selectedRoute == '/products_insights'
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: widget.selectedRoute == '/products_insights',
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/products_insights');
-                      Navigator.pushNamed(context, '/products_insights');
-                    },
-                  ),
-                ),
-              ),
-              SizeTransition(
-                sizeFactor: _operationalController,
-                axisAlignment: -1.0,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                    horizontal: 32,
-                    vertical: 4,
-                  ),
-                  decoration: BoxDecoration(
-                    color: widget.selectedRoute == '/top_selling_products'
-                        ? Theme.of(
-                            context,
-                          ).colorScheme.primaryContainer.withOpacity(0.3)
-                        : Colors.transparent,
-                    borderRadius: BorderRadius.circular(8),
-                    border: widget.selectedRoute == '/top_selling_products'
-                        ? Border.all(
-                            color: Theme.of(
-                              context,
-                            ).colorScheme.primary.withOpacity(0.5),
-                          )
-                        : null,
-                  ),
-                  child: ListTile(
-                    leading: Icon(
-                      Icons.trending_up,
-                      color: widget.selectedRoute == '/top_selling_products'
-                          ? Theme.of(context).colorScheme.primary
-                          : Colors.grey,
-                      size: 16,
-                    ),
-                    title: Text(
-                      'Top-Selling Products',
-                      style: TextStyle(
-                        color: widget.selectedRoute == '/top_selling_products'
-                            ? Theme.of(context).colorScheme.primary
-                            : null,
-                        fontWeight:
-                            widget.selectedRoute == '/top_selling_products'
-                            ? FontWeight.bold
-                            : FontWeight.normal,
-                        fontSize: 16.0,
-                      ),
-                    ),
-                    selected: widget.selectedRoute == '/top_selling_products',
-                    selectedTileColor: Colors.transparent,
-                    onTap: () {
-                      widget.onSelect('/top_selling_products');
-                      Navigator.pushNamed(context, '/top_selling_products');
                     },
                   ),
                 ),
