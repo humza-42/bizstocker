@@ -31,6 +31,14 @@ import 'Screens/Reports/Financial_Reports/income_statement_screen.dart';
 import 'Screens/Reports/Financial_Reports/balance_sheet_screen.dart';
 import 'Screens/Reports/Financial_Reports/cash_flow_statement_screen.dart';
 import 'Screens/Reports/Financial_Reports/trial_balance_screen.dart';
+import 'Screens/Reports/Analysis_Reports/monthly_pnl_summary_screen.dart';
+import 'Screens/Reports/Analysis_Reports/comparative_pnl_screen.dart';
+import 'Screens/Reports/Analysis_Reports/business_analysis_screen.dart';
+import 'Screens/Reports/Analysis_Reports/expense_analysis_screen.dart';
+import 'Screens/Reports/Analysis_Reports/sales_analysis_screen.dart';
+import 'Screens/Reports/Analysis_Reports/purchase_analysis_screen.dart';
+import 'Screens/Reports/Analysis_Reports/gross_profit_margin_screen.dart';
+import 'Screens/Reports/Analysis_Reports/inventory_valuation_screen.dart';
 
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
@@ -94,6 +102,14 @@ class MyApp extends StatelessWidget {
         '/balance_sheet': (context) => const BalanceSheetScreen(),
         '/cash_flow_statement': (context) => const CashFlowStatementScreen(),
         '/trial_balance': (context) => const TrialBalanceScreen(),
+        '/monthly_pnl_summary': (context) => const MonthlyPnlSummaryScreen(),
+        '/comparative_pnl': (context) => const ComparativePnlScreen(),
+        '/business_analysis': (context) => const BusinessAnalysisScreen(),
+        '/expense_analysis': (context) => const ExpenseAnalysisScreen(),
+        '/sales_analysis': (context) => const SalesAnalysisScreen(),
+        '/purchase_analysis': (context) => const PurchaseAnalysisScreen(),
+        '/gross_profit_margin': (context) => const GrossProfitMarginScreen(),
+        '/inventory_valuation': (context) => const InventoryValuationScreen(),
       },
     );
   }
