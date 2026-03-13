@@ -294,13 +294,39 @@ class _ReportsExpansionTileState extends State<ReportsExpansionTile>
                   ],
                 ),
                 // Ledger & Accounts
-                CustomDrawerTile(
+                CustomExpansionReportsTile(
                   title: 'Ledger & Accounts',
                   icon: Icons.book,
                   route: '/ledger_accounts',
                   selectedRoute: widget.selectedRoute,
                   onSelect: widget.onSelect,
                   indentationLevel: 1,
+                  children: [
+                    CustomDrawerTile(
+                      title: 'General Ledger',
+                      icon: Icons.account_balance,
+                      route: '/general_ledger',
+                      selectedRoute: widget.selectedRoute,
+                      onSelect: widget.onSelect,
+                      indentationLevel: 2,
+                    ),
+                    CustomDrawerTile(
+                      title: 'Journal Entries',
+                      icon: Icons.receipt_long,
+                      route: '/journal_entries',
+                      selectedRoute: widget.selectedRoute,
+                      onSelect: widget.onSelect,
+                      indentationLevel: 2,
+                    ),
+                    CustomDrawerTile(
+                      title: 'Chart of Accounts',
+                      icon: Icons.account_tree,
+                      route: '/chart_of_accounts',
+                      selectedRoute: widget.selectedRoute,
+                      onSelect: widget.onSelect,
+                      indentationLevel: 2,
+                    ),
+                  ],
                 ),
                 // Aging Reports
                 CustomDrawerTile(

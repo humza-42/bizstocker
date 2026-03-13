@@ -39,6 +39,9 @@ import 'Screens/Reports/Analysis_Reports/sales_analysis_screen.dart';
 import 'Screens/Reports/Analysis_Reports/purchase_analysis_screen.dart';
 import 'Screens/Reports/Analysis_Reports/gross_profit_margin_screen.dart';
 import 'Screens/Reports/Analysis_Reports/inventory_valuation_screen.dart';
+import 'Screens/Reports/Ledger_Accounts/general_ledger_screen.dart';
+import 'Screens/Reports/Ledger_Accounts/journal_entries_screen.dart';
+import 'Screens/Reports/Ledger_Accounts/chart_of_accounts_screen.dart';
 
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
@@ -110,6 +113,9 @@ class MyApp extends StatelessWidget {
         '/purchase_analysis': (context) => const PurchaseAnalysisScreen(),
         '/gross_profit_margin': (context) => const GrossProfitMarginScreen(),
         '/inventory_valuation': (context) => const InventoryValuationScreen(),
+        '/general_ledger': (context) => const GeneralLedgerScreen(),
+        '/journal_entries': (context) => const JournalEntriesScreen(),
+        '/chart_of_accounts': (context) => const ChartOfAccountsScreen(),
       },
     );
   }
