@@ -42,6 +42,8 @@ import 'Screens/Reports/Analysis_Reports/inventory_valuation_screen.dart';
 import 'Screens/Reports/Ledger_Accounts/general_ledger_screen.dart';
 import 'Screens/Reports/Ledger_Accounts/journal_entries_screen.dart';
 import 'Screens/Reports/Ledger_Accounts/chart_of_accounts_screen.dart';
+import 'Screens/Reports/aging_reports/accounts_receivable_aging_screen.dart';
+import 'Screens/Reports/aging_reports/accounts_payable_aging_screen.dart';
 
 import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
@@ -116,6 +118,10 @@ class MyApp extends StatelessWidget {
         '/general_ledger': (context) => const GeneralLedgerScreen(),
         '/journal_entries': (context) => const JournalEntriesScreen(),
         '/chart_of_accounts': (context) => const ChartOfAccountsScreen(),
+        '/accounts_receivable_aging': (context) =>
+            const AccountsReceivableAgingScreen(),
+        '/accounts_payable_aging': (context) =>
+            const AccountsPayableAgingScreen(),
       },
     );
   }

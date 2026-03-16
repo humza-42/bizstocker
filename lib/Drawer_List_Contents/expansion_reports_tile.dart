@@ -329,13 +329,31 @@ class _ReportsExpansionTileState extends State<ReportsExpansionTile>
                   ],
                 ),
                 // Aging Reports
-                CustomDrawerTile(
+                CustomExpansionReportsTile(
                   title: 'Aging Reports',
                   icon: Icons.timer,
                   route: '/aging_reports',
                   selectedRoute: widget.selectedRoute,
                   onSelect: widget.onSelect,
                   indentationLevel: 1,
+                  children: [
+                    CustomDrawerTile(
+                      title: 'Accounts Receivable Aging',
+                      icon: Icons.money_outlined,
+                      route: '/accounts_receivable_aging',
+                      selectedRoute: widget.selectedRoute,
+                      onSelect: widget.onSelect,
+                      indentationLevel: 2,
+                    ),
+                    CustomDrawerTile(
+                      title: 'Accounts Payable Aging',
+                      icon: Icons.money,
+                      route: '/accounts_payable_aging',
+                      selectedRoute: widget.selectedRoute,
+                      onSelect: widget.onSelect,
+                      indentationLevel: 2,
+                    ),
+                  ],
                 ),
               ],
             ),
