@@ -70,20 +70,16 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const SplashScreen(),
         '/dashboard': (context) => const DashboardScreen(),
-        // '/purchases': (context) => const PurchaseScreen(),
         '/purchase_orders': (context) => const purchase_orders.OrdersScreen(),
         '/purchase_returns': (context) =>
             const purchase_returns.ReturnsScreen(),
         '/vendors': (context) => const VendorsScreen(),
-        // '/manufacturing': (context) => const ManufacturingScreen(),
         '/productions': (context) => const ProductionsScreen(),
         '/products': (context) => const ProductsScreen(),
         '/bom': (context) => const BomScreen(),
-        // '/sales_screen': (context) => const SalesScreen(),
         '/sales_orders': (context) => const sales_orders.OrdersScreen(),
         '/sales_customers': (context) => const CustomersScreen(),
         '/sales_returns': (context) => const sales_returns.ReturnsScreen(),
-        // '/transactions_screen': (context) => const TransactionScreen(),
         '/transaction_purchase': (context) => const TransactionPurchaseScreen(),
         '/transaction_sales': (context) => const TransactionSalesScreen(),
         '/transaction_sales_return': (context) =>
@@ -92,7 +88,6 @@ class MyApp extends StatelessWidget {
             const TransactionPurchaseReturnScreen(),
         '/transaction_capital_investment': (context) =>
             const TransactionCapitalInvestmentScreen(),
-        // '/expenses_screen': (context) => const ExpensesScreen(),
         '/all_expenses_screen': (context) => const AllExpensesScreen(),
         '/general_expenses_screen': (context) => const GeneralExpensesScreen(),
         '/manage_expense_groups_screen': (context) =>
