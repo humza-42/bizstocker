@@ -3,6 +3,10 @@ import 'package:biz_stocker/Screens/Sales/customers_screen.dart';
 import 'package:biz_stocker/Screens/Sales/returns_screen.dart' as sales_returns;
 
 import 'Screens/dashboard_screen.dart';
+import 'Screens/Settings/settings_screen.dart';
+import 'Screens/Settings/company_screen.dart';
+import 'Screens/Settings/users_screen.dart';
+import 'Screens/Settings/groups_screen.dart';
 
 import 'Screens/Purchases/orders_screen.dart' as purchase_orders;
 import 'Screens/Purchases/returns_screen.dart' as purchase_returns;
@@ -117,6 +121,10 @@ class MyApp extends StatelessWidget {
             const AccountsReceivableAgingScreen(),
         '/accounts_payable_aging': (context) =>
             const AccountsPayableAgingScreen(),
+        '/settings': (context) => const SettingsScreen(),
+        '/settings_company': (context) => const CompanyScreen(),
+        '/settings_users': (context) => const UsersScreen(),
+        '/settings_groups': (context) => const GroupsScreen(),
       },
     );
   }
