@@ -48,65 +48,71 @@ class _SplashScreenState extends State<SplashScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        // decoration: const BoxDecoration(
-        //   gradient: LinearGradient(
-        //     colors: [Colors.blue, Colors.purple],
-        //     begin: Alignment.topLeft,
-        //     end: Alignment.bottomRight,
-        //   ),
-        // ),
-        color: AppColors.primary,
-        child: FadeTransition(
-          opacity: _animation,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              // Animated Logo
-              ScaleTransition(
-                scale: _animation,
-                child: Container(
-                  padding: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.2),
-                    shape: BoxShape.circle,
-                  ),
-                  child: const Icon(
-                    Icons.flutter_dash,
-                    size: 120,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 20),
-              FadeTransition(
-                opacity: _animation,
-                child: const Text(
-                  "BizStocker",
-                  style: TextStyle(
-                    fontSize: 28,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    letterSpacing: 2,
+    return WillPopScope(
+      onWillPop: () async {
+        // Prevent going back from splash screen
+        return false;
+      },
+      child: Scaffold(
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          // decoration: const BoxDecoration(
+          //   gradient: LinearGradient(
+          //     colors: [Colors.blue, Colors.purple],
+          //     begin: Alignment.topLeft,
+          //     end: Alignment.bottomRight,
+          //   ),
+          // ),
+          color: AppColors.primary,
+          child: FadeTransition(
+            opacity: _animation,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Animated Logo
+                ScaleTransition(
+                  scale: _animation,
+                  child: Container(
+                    padding: const EdgeInsets.all(20),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.2),
+                      shape: BoxShape.circle,
+                    ),
+                    child: const Icon(
+                      Icons.flutter_dash,
+                      size: 120,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(height: 10),
-              FadeTransition(
-                opacity: _animation,
-                child: const Text(
-                  "Manage your business effortlessly",
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                    fontStyle: FontStyle.italic,
+                const SizedBox(height: 20),
+                FadeTransition(
+                  opacity: _animation,
+                  child: const Text(
+                    "BizStocker",
+                    style: TextStyle(
+                      fontSize: 28,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 2,
+                    ),
                   ),
                 ),
-              ),
-            ],
+                const SizedBox(height: 10),
+                FadeTransition(
+                  opacity: _animation,
+                  child: const Text(
+                    "Manage your business effortlessly",
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.white70,
+                      fontStyle: FontStyle.italic,
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
