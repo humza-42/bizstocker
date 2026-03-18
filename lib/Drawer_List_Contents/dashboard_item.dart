@@ -31,7 +31,7 @@ class DashboardItem extends StatelessWidget {
           Icons.dashboard,
           color: isSelected
               ? Theme.of(context).colorScheme.primary
-              : Colors.grey,
+              : Theme.of(context).colorScheme.onSurfaceVariant,
           size: 16,
         ),
         title: Text(

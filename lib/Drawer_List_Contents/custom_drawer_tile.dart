@@ -48,7 +48,7 @@ class CustomDrawerTile extends StatelessWidget {
           icon,
           color: isSelected
               ? Theme.of(context).colorScheme.primary
-              : Colors.grey,
+              : Theme.of(context).colorScheme.onSurfaceVariant,
           size: 16,
         ),
         title: Text(
@@ -64,7 +64,7 @@ class CustomDrawerTile extends StatelessWidget {
         trailing: hasChildren
             ? Icon(
                 isExpanded ? Icons.expand_less : Icons.expand_more,
-                color: Colors.grey,
+                color: Theme.of(context).colorScheme.onSurfaceVariant,
                 size: 16,
               )
             : null,

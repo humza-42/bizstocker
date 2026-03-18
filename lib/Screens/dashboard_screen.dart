@@ -25,10 +25,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           title: Center(
             child: Padding(
               padding: const EdgeInsets.only(right: 25),
-              child: const Text(
-                'Dashboard',
-                style: TextStyle(color: Colors.black),
-              ),
+              child: const Text('Dashboard'),
             ),
           ),
 
@@ -36,7 +33,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
           // foregroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
           // backgroundColor: primaryColor,
           elevation: 0,
-          iconTheme: IconThemeData(color: Colors.black),
+          iconTheme: IconThemeData(
+            color: Theme.of(context).colorScheme.onSurface,
+          ),
         ),
         body: Container(
           padding: const EdgeInsets.all(16.0),

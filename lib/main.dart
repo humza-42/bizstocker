@@ -53,79 +53,121 @@ import 'SplashScreen/splash_screen.dart';
 import 'theme/color_scheme.dart';
 import 'package:flutter/material.dart';
 
+class ThemeProvider extends InheritedWidget {
+  final ThemeMode themeMode;
+  final Function() toggleTheme;
+
+  const ThemeProvider({
+    super.key,
+    required this.themeMode,
+    required this.toggleTheme,
+    required super.child,
+  });
+
+  static ThemeProvider? of(BuildContext context) {
+    return context.dependOnInheritedWidgetOfExactType<ThemeProvider>();
+  }
+
+  @override
+  bool updateShouldNotify(ThemeProvider oldWidget) {
+    return themeMode != oldWidget.themeMode;
+  }
+}
+
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  ThemeMode _themeMode = ThemeMode.light;
+
+  void toggleTheme() {
+    setState(() {
+      _themeMode = _themeMode == ThemeMode.light
+          ? ThemeMode.dark
+          : ThemeMode.light;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'BizStockersdsads',
-      theme: AppTheme.light(),
-      darkTheme: AppTheme.dark(),
-      themeMode: ThemeMode.light,
+    return ThemeProvider(
+      themeMode: _themeMode,
+      toggleTheme: toggleTheme,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'BizStockersdsads',
+        theme: AppTheme.light(),
+        darkTheme: AppTheme.dark(),
+        themeMode: _themeMode,
 
-      initialRoute: '/',
-      routes: {
-        '/': (context) => const SplashScreen(),
-        '/dashboard': (context) => const DashboardScreen(),
-        '/purchase_orders': (context) => const purchase_orders.OrdersScreen(),
-        '/purchase_returns': (context) =>
-            const purchase_returns.ReturnsScreen(),
-        '/vendors': (context) => const VendorsScreen(),
-        '/productions': (context) => const ProductionsScreen(),
-        '/products': (context) => const ProductsScreen(),
-        '/bom': (context) => const BomScreen(),
-        '/sales_orders': (context) => const sales_orders.OrdersScreen(),
-        '/sales_customers': (context) => const CustomersScreen(),
-        '/sales_returns': (context) => const sales_returns.ReturnsScreen(),
-        '/transaction_purchase': (context) => const TransactionPurchaseScreen(),
-        '/transaction_sales': (context) => const TransactionSalesScreen(),
-        '/transaction_sales_return': (context) =>
-            const TransactionSalesReturnScreen(),
-        '/transaction_purchase_return': (context) =>
-            const TransactionPurchaseReturnScreen(),
-        '/transaction_capital_investment': (context) =>
-            const TransactionCapitalInvestmentScreen(),
-        '/all_expenses_screen': (context) => const AllExpensesScreen(),
-        '/general_expenses_screen': (context) => const GeneralExpensesScreen(),
-        '/manage_expense_groups_screen': (context) =>
-            const ManageExpenseGroupsScreen(),
-        '/production_report': (context) => const ProductionReportScreen(),
-        '/vendors_insights': (context) => const VendorsInsightsScreen(),
-        '/customer_balances': (context) => const CustomerBalancesScreen(),
-        '/customer_insights': (context) => const CustomerInsightsScreen(),
-        '/products_insights': (context) => const ProductsInsightsScreen(),
-        '/top_selling_products': (context) => const TopSellingProductsScreen(),
-        '/income_statement': (context) => const IncomeStatementScreen(),
-        '/balance_sheet': (context) => const BalanceSheetScreen(),
-        '/cash_flow_statement': (context) => const CashFlowStatementScreen(),
-        '/trial_balance': (context) => const TrialBalanceScreen(),
-        '/monthly_pnl_summary': (context) => const MonthlyPnlSummaryScreen(),
-        '/comparative_pnl': (context) => const ComparativePnlScreen(),
-        '/business_analysis': (context) => const BusinessAnalysisScreen(),
-        '/expense_analysis': (context) => const ExpenseAnalysisScreen(),
-        '/sales_analysis': (context) => const SalesAnalysisScreen(),
-        '/purchase_analysis': (context) => const PurchaseAnalysisScreen(),
-        '/gross_profit_margin': (context) => const GrossProfitMarginScreen(),
-        '/inventory_valuation': (context) => const InventoryValuationScreen(),
-        '/general_ledger': (context) => const GeneralLedgerScreen(),
-        '/journal_entries': (context) => const JournalEntriesScreen(),
-        '/chart_of_accounts': (context) => const ChartOfAccountsScreen(),
-        '/accounts_receivable_aging': (context) =>
-            const AccountsReceivableAgingScreen(),
-        '/accounts_payable_aging': (context) =>
-            const AccountsPayableAgingScreen(),
-        '/settings': (context) => const SettingsScreen(),
-        '/settings_company': (context) => const CompanyScreen(),
-        '/settings_users': (context) => const UsersScreen(),
-        '/settings_groups': (context) => const GroupsScreen(),
-      },
+        initialRoute: '/',
+        routes: {
+          '/': (context) => const SplashScreen(),
+          '/dashboard': (context) => const DashboardScreen(),
+          '/purchase_orders': (context) => const purchase_orders.OrdersScreen(),
+          '/purchase_returns': (context) =>
+              const purchase_returns.ReturnsScreen(),
+          '/vendors': (context) => const VendorsScreen(),
+          '/productions': (context) => const ProductionsScreen(),
+          '/products': (context) => const ProductsScreen(),
+          '/bom': (context) => const BomScreen(),
+          '/sales_orders': (context) => const sales_orders.OrdersScreen(),
+          '/sales_customers': (context) => const CustomersScreen(),
+          '/sales_returns': (context) => const sales_returns.ReturnsScreen(),
+          '/transaction_purchase': (context) =>
+              const TransactionPurchaseScreen(),
+          '/transaction_sales': (context) => const TransactionSalesScreen(),
+          '/transaction_sales_return': (context) =>
+              const TransactionSalesReturnScreen(),
+          '/transaction_purchase_return': (context) =>
+              const TransactionPurchaseReturnScreen(),
+          '/transaction_capital_investment': (context) =>
+              const TransactionCapitalInvestmentScreen(),
+          '/all_expenses_screen': (context) => const AllExpensesScreen(),
+          '/general_expenses_screen': (context) =>
+              const GeneralExpensesScreen(),
+          '/manage_expense_groups_screen': (context) =>
+              const ManageExpenseGroupsScreen(),
+          '/production_report': (context) => const ProductionReportScreen(),
+          '/vendors_insights': (context) => const VendorsInsightsScreen(),
+          '/customer_balances': (context) => const CustomerBalancesScreen(),
+          '/customer_insights': (context) => const CustomerInsightsScreen(),
+          '/products_insights': (context) => const ProductsInsightsScreen(),
+          '/top_selling_products': (context) =>
+              const TopSellingProductsScreen(),
+          '/income_statement': (context) => const IncomeStatementScreen(),
+          '/balance_sheet': (context) => const BalanceSheetScreen(),
+          '/cash_flow_statement': (context) => const CashFlowStatementScreen(),
+          '/trial_balance': (context) => const TrialBalanceScreen(),
+          '/monthly_pnl_summary': (context) => const MonthlyPnlSummaryScreen(),
+          '/comparative_pnl': (context) => const ComparativePnlScreen(),
+          '/business_analysis': (context) => const BusinessAnalysisScreen(),
+          '/expense_analysis': (context) => const ExpenseAnalysisScreen(),
+          '/sales_analysis': (context) => const SalesAnalysisScreen(),
+          '/purchase_analysis': (context) => const PurchaseAnalysisScreen(),
+          '/gross_profit_margin': (context) => const GrossProfitMarginScreen(),
+          '/inventory_valuation': (context) => const InventoryValuationScreen(),
+          '/general_ledger': (context) => const GeneralLedgerScreen(),
+          '/journal_entries': (context) => const JournalEntriesScreen(),
+          '/chart_of_accounts': (context) => const ChartOfAccountsScreen(),
+          '/accounts_receivable_aging': (context) =>
+              const AccountsReceivableAgingScreen(),
+          '/accounts_payable_aging': (context) =>
+              const AccountsPayableAgingScreen(),
+          '/settings': (context) => const SettingsScreen(),
+          '/settings_company': (context) => const CompanyScreen(),
+          '/settings_users': (context) => const UsersScreen(),
+          '/settings_groups': (context) => const GroupsScreen(),
+        },
+      ),
     );
   }
 }

@@ -20,7 +20,10 @@ class DrawerHeaderWidget extends StatelessWidget {
           ),
           const Spacer(),
           IconButton(
-            icon: const Icon(Icons.arrow_back_ios, color: Colors.grey),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
             onPressed: () {
               Navigator.of(context).pop(); // Close the drawer
             },

@@ -32,28 +32,58 @@ class AppColors {
   ); // Emerald 800 - Text on secondary container
 
   // ============================================
-  // SURFACE COLORS (Backgrounds & Cards)
+  // LIGHT THEME SPECIFIC COLORS
   // ============================================
-  static const Color surface = Colors.white; // Pure white - Main background
-  static const Color surfaceContainer = Color(
+  static const Color lightSurface =
+      Colors.white; // Pure white - Main background
+  static const Color lightSurfaceContainer = Color(
     0xFFF9FAFB,
   ); // Gray 50 - Light background
-  static const Color surfaceContainerLow = Color(
+  static const Color lightSurfaceContainerLow = Color(
     0xFFF3F4F6,
   ); // Gray 100 - Cards & containers
-  static const Color surfaceContainerHigh = Color(
+  static const Color lightSurfaceContainerHigh = Color(
     0xFFE5E7EB,
   ); // Gray 200 - Elevated surfaces
-  static const Color surfaceVariant = Color(
+  static const Color lightSurfaceVariant = Color(
     0xFFE5E7EB,
   ); // Gray 200 - Variant surfaces
-  static const Color onSurface = Color(0xFF111827); // Gray 900 - Main text
-  static const Color onSurfaceVariant = Color(
+  static const Color lightOnSurface = Color(0xFF111827); // Gray 900 - Main text
+  static const Color lightOnSurfaceVariant = Color(
     0xFF6B7280,
   ); // Gray 500 - Secondary text
+  static const Color lightBackground = Colors.white; // Main background
+  static const Color lightBorder = Color(
+    0xFFE5E7EB,
+  ); // Gray 200 - Light borders
 
   // ============================================
-  // SUPPORTING COLORS (Status & Feedback)
+  // DARK THEME SPECIFIC COLORS
+  // ============================================
+  static const Color darkSurface = Color(
+    0xFF1F2937,
+  ); // Gray 800 - Main background
+  static const Color darkSurfaceContainer = Color(
+    0xFF111827,
+  ); // Gray 900 - Dark background
+  static const Color darkSurfaceContainerLow = Color(
+    0xFF374151,
+  ); // Gray 700 - Cards & containers
+  static const Color darkSurfaceContainerHigh = Color(
+    0xFF4B5563,
+  ); // Gray 600 - Elevated surfaces
+  static const Color darkSurfaceVariant = Color(
+    0xFF374151,
+  ); // Gray 700 - Variant surfaces
+  static const Color darkOnSurface = Color(0xFFF3F4F6); // Gray 100 - Main text
+  static const Color darkOnSurfaceVariant = Color(
+    0xFFD1D5DB,
+  ); // Gray 300 - Secondary text
+  static const Color darkBackground = Color(0xFF111827); // Main background
+  static const Color darkBorder = Color(0xFF4B5563); // Gray 600 - Dark borders
+
+  // ============================================
+  // SUPPORTING COLORS (Status & Feedback) - Same for both themes
   // ============================================
   // Success (Green)
   static const Color success = Color(0xFF10B981); // Emerald 500
@@ -76,18 +106,6 @@ class AppColors {
   static const Color onInfo = Colors.white;
 
   // ============================================
-  // NEUTRAL BACKGROUNDS (Grayscale)
-  // ============================================
-  static const Color background = Colors.white; // Main background
-  static const Color backgroundElevated = Color(0xFFF9FAFB); // Light elevation
-  static const Color backgroundSecondary = Color(
-    0xFFF3F4F6,
-  ); // Secondary sections
-  static const Color backgroundTertiary = Color(
-    0xFFE5E7EB,
-  ); // Tertiary elements
-
-  // ============================================
   // ACCENT COLORS (Highlights & Emphasis)
   // ============================================
   static const Color accent = Color(0xFF8B5CF6); // Purple 500 - Highlights
@@ -98,27 +116,6 @@ class AppColors {
     0xFFEC4899,
   ); // Pink 500 - Alternative accent
   static const Color accentSecondaryContainer = Color(0xFFFFE8F0); // Pink 100
-
-  // ============================================
-  // BORDER & DIVIDER COLORS
-  // ============================================
-  static const Color border = Color(0xFFE5E7EB); // Gray 200 - Light borders
-  static const Color borderDark = Color(0xFFD1D5DB); // Gray 300 - Dark borders
-  static const Color divider = Color(0xFFE5E7EB); // Same as border
-
-  // ============================================
-  // TEXT COLORS (Typography)
-  // ============================================
-  static const Color textPrimary = Color(0xFF111827); // Gray 900 - Main text
-  static const Color textSecondary = Color(
-    0xFF6B7280,
-  ); // Gray 500 - Secondary text
-  static const Color textTertiary = Color(
-    0xFF9CA3AF,
-  ); // Gray 400 - Tertiary text
-  static const Color textDisabled = Color(
-    0xFFD1D5DB,
-  ); // Gray 300 - Disabled text
 
   // ============================================
   // SHADOW & OVERLAY COLORS
@@ -153,6 +150,7 @@ class AppTheme {
       useMaterial3: true,
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primary,
+        brightness: Brightness.light,
         primary: AppColors.primary,
         primaryContainer: AppColors.primaryContainer,
         onPrimary: AppColors.onPrimary,
@@ -161,23 +159,47 @@ class AppTheme {
         secondaryContainer: AppColors.secondaryContainer,
         onSecondary: AppColors.onSecondary,
         onSecondaryContainer: AppColors.onSecondaryContainer,
-        surface: AppColors.surface,
-        surfaceContainer: AppColors.surfaceContainer,
-        surfaceContainerHighest: AppColors.surfaceContainerHigh,
-        onSurface: AppColors.onSurface,
-        onSurfaceVariant: AppColors.onSurfaceVariant,
+        surface: AppColors.lightSurface,
+        surfaceContainer: AppColors.lightSurfaceContainer,
+        surfaceContainerHighest: AppColors.lightSurfaceContainerHigh,
+        onSurface: AppColors.lightOnSurface,
+        onSurfaceVariant: AppColors.lightOnSurfaceVariant,
         error: AppColors.error,
         errorContainer: AppColors.errorContainer,
         onError: AppColors.onError,
-        background: AppColors.background,
-        onBackground: AppColors.onSurface,
+        background: AppColors.lightBackground,
+        onBackground: AppColors.lightOnSurface,
       ),
-      scaffoldBackgroundColor: AppColors.background,
+      scaffoldBackgroundColor: AppColors.lightBackground,
     );
   }
 
   static ThemeData dark() {
-    // Dark theme can be implemented similarly if needed
-    return light();
+    return ThemeData(
+      useMaterial3: true,
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: AppColors.primary,
+        brightness: Brightness.dark,
+        primary: AppColors.primary,
+        primaryContainer: AppColors.primaryContainer,
+        onPrimary: AppColors.onPrimary,
+        onPrimaryContainer: AppColors.onPrimaryContainer,
+        secondary: AppColors.secondary,
+        secondaryContainer: AppColors.secondaryContainer,
+        onSecondary: AppColors.onSecondary,
+        onSecondaryContainer: AppColors.onSecondaryContainer,
+        surface: AppColors.darkSurface,
+        surfaceContainer: AppColors.darkSurfaceContainer,
+        surfaceContainerHighest: AppColors.darkSurfaceContainerHigh,
+        onSurface: AppColors.darkOnSurface,
+        onSurfaceVariant: AppColors.darkOnSurfaceVariant,
+        error: AppColors.error,
+        errorContainer: AppColors.errorContainer,
+        onError: AppColors.onError,
+        background: AppColors.darkBackground,
+        onBackground: AppColors.darkOnSurface,
+      ),
+      scaffoldBackgroundColor: AppColors.darkBackground,
+    );
   }
 }

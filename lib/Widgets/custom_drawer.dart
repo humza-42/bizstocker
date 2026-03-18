@@ -10,6 +10,7 @@ import '../Drawer_List_Contents/expansion_purchase_tile.dart';
 import '../Drawer_List_Contents/expansion_manufacturing_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
+import '../main.dart';
 
 class CustomDrawer extends StatefulWidget {
   final String currentRoute;
@@ -197,8 +198,92 @@ class _CustomDrawerState extends State<CustomDrawer>
                 ],
               ),
             ),
-            // const UserInfo(),
-            // const BottomNavigation(),
+            // Bottom icon buttons
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16.0,
+                vertical: 12.0,
+              ),
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(color: Theme.of(context).dividerColor),
+                ),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  // Theme toggle button
+                  IconButton(
+                    icon: Icon(
+                      Theme.of(context).brightness == Brightness.light
+                          ? Icons.dark_mode
+                          : Icons.light_mode,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+                    onPressed: () {
+                      ThemeProvider.of(context)?.toggleTheme();
+                    },
+                    tooltip: 'Toggle Theme',
+                  ),
+                  // Profile button
+                  IconButton(
+                    icon: Icon(
+                      Icons.person,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text('Profile'),
+                          content: Text(
+                            'Profile information will be displayed here.',
+                          ),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text('Close'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    tooltip: 'Profile',
+                  ),
+                  // Logout button
+                  IconButton(
+                    icon: Icon(
+                      Icons.logout,
+                      color: Theme.of(context).colorScheme.onSurface,
+                    ),
+                    onPressed: () {
+                      showDialog(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text('Logout'),
+                          content: Text('Are you sure you want to logout?'),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.pop(context),
+                              child: Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                Navigator.pop(context);
+                                // Add your logout logic here
+                                Navigator.pushReplacementNamed(context, '/');
+                              },
+                              child: Text('Logout'),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    tooltip: 'Logout',
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
