@@ -264,7 +264,12 @@ class _CustomDrawerState extends State<CustomDrawer>
                               onPressed: () {
                                 Navigator.pop(context);
                                 // Add your logout logic here
-                                Navigator.pushReplacementNamed(context, '/');
+                                Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const LoginScreen(),
+                                  ),
+                                );
                               },
                               child: Text('Logout'),
                             ),
