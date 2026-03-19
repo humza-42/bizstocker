@@ -7,6 +7,8 @@ import 'Screens/Settings/settings_screen.dart';
 import 'Screens/Settings/company_screen.dart';
 import 'Screens/Settings/users_screen.dart';
 import 'Screens/Settings/groups_screen.dart';
+import 'Screens/login_screen.dart';
+import 'Screens/profile_screen.dart';
 
 import 'Screens/Purchases/orders_screen.dart' as purchase_orders;
 import 'Screens/Purchases/returns_screen.dart' as purchase_returns;
@@ -111,7 +113,11 @@ class _MyAppState extends State<MyApp> {
         initialRoute: '/',
         routes: {
           '/': (context) => const SplashScreen(),
-          '/dashboard': (context) => const DashboardScreen(),
+          '/dashboard': (context) {
+            final args =
+                ModalRoute.of(context)!.settings.arguments as UserData?;
+            return DashboardScreen(userData: args);
+          },
           '/purchase_orders': (context) => const purchase_orders.OrdersScreen(),
           '/purchase_returns': (context) =>
               const purchase_returns.ReturnsScreen(),
@@ -166,6 +172,7 @@ class _MyAppState extends State<MyApp> {
           '/settings_company': (context) => const CompanyScreen(),
           '/settings_users': (context) => const UsersScreen(),
           '/settings_groups': (context) => const GroupsScreen(),
+          '/profile': (context) => const ProfileScreen(),
         },
       ),
     );

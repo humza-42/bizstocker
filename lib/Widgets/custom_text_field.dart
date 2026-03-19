@@ -10,10 +10,10 @@ class CustomTextField extends StatelessWidget {
   final Color fillColor;
   final BorderSide borderSide;
   final BorderSide focusedBorderSide;
+  final TextEditingController? controller;
 
   const CustomTextField({
     super.key,
-
     required this.hintText,
     this.keyboardType = TextInputType.text,
     this.textInputAction = TextInputAction.next,
@@ -23,6 +23,7 @@ class CustomTextField extends StatelessWidget {
     this.fillColor = Colors.white,
     this.borderSide = const BorderSide(color: Colors.grey, width: 2.0),
     this.focusedBorderSide = const BorderSide(color: Colors.blue, width: 2.0),
+    this.controller,
   });
 
   @override
@@ -34,6 +35,7 @@ class CustomTextField extends StatelessWidget {
         SizedBox(
           width: double.infinity,
           child: TextField(
+            controller: controller,
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: const TextStyle(color: Colors.grey),

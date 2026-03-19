@@ -2,10 +2,13 @@ import '../Widgets/Dashboard_Screen/financial_stats_grid.dart';
 import '../Widgets/Dashboard_Screen/quick_stats_grid.dart';
 import '../Widgets/Dashboard_Screen/welcome_card.dart';
 import '../Widgets/custom_drawer.dart';
+import 'login_screen.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
+  final UserData? userData;
+
+  const DashboardScreen({super.key, this.userData});
 
   @override
   State<DashboardScreen> createState() => _DashboardScreenState();
@@ -20,7 +23,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
         return false;
       },
       child: Scaffold(
-        drawer: const CustomDrawer(currentRoute: '/dashboard'),
+        drawer: CustomDrawer(
+          currentRoute: '/dashboard',
+          userData: widget.userData,
+        ),
         appBar: AppBar(
           title: Center(
             child: Padding(
@@ -28,10 +34,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
               child: const Text('Dashboard'),
             ),
           ),
-
-          // backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
-          // foregroundColor: Theme.of(context).colorScheme.onSecondaryContainer,
-          // backgroundColor: primaryColor,
           elevation: 0,
           iconTheme: IconThemeData(
             color: Theme.of(context).colorScheme.onSurface,
@@ -44,7 +46,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const WelcomeCard(),
+                WelcomeCard(userData: widget.userData),
                 const SizedBox(height: 24.0),
                 const QuickStatsGrid(),
                 const SizedBox(height: 24.0),

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import '../../theme/color_scheme.dart';
+import '../../Screens/login_screen.dart';
 
 class WelcomeCard extends StatelessWidget {
-  const WelcomeCard({super.key});
+  final UserData? userData;
+
+  const WelcomeCard({super.key, this.userData});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +22,9 @@ class WelcomeCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Welcome to Dashboard',
+              userData != null
+                  ? 'Welcome, ${userData!.name}'
+                  : 'Welcome to Dashboard',
               style: TextStyle(
                 fontSize: 24.0,
                 fontWeight: FontWeight.bold,

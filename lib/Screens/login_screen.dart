@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import '../Widgets/custom_text_field.dart';
 import '../Widgets/sign_in_button.dart';
 
+// Simple user data model
+class UserData {
+  final String name;
+  final String username;
+  final String email;
+
+  UserData({required this.name, required this.username, required this.email});
+}
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -11,11 +20,20 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _obscureText = true;
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   void _togglePasswordVisibility() {
     setState(() {
       _obscureText = !_obscureText;
     });
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -50,15 +68,6 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     const SizedBox(height: 12.0),
-                    // const Text(
-                    //   'BizStocker ',
-                    //   textAlign: TextAlign.center,
-                    //   style: TextStyle(
-                    //     fontSize: 36.0,
-                    //     fontWeight: FontWeight.bold,
-                    //     color: Colors.black87,
-                    //   ),
-                    // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -82,7 +91,6 @@ class _LoginScreenState extends State<LoginScreen> {
                     _buildEmailTextField(),
                     const SizedBox(height: 24.0),
                     _buildPasswordTextField(),
-                    // const SizedBox(height: 24.0),
                     _buildRememberForgotRow(),
                     const SizedBox(height: 32.0),
                     _buildLoginButton(),
@@ -98,6 +106,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildEmailTextField() {
     return CustomTextField(
+      controller: _emailController,
       prefixIcon: const Icon(Icons.email, color: Colors.grey),
       hintText: 'Enter your email ',
       keyboardType: TextInputType.emailAddress,
@@ -107,6 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Widget _buildPasswordTextField() {
     return CustomTextField(
+      controller: _passwordController,
       prefixIcon: const Icon(Icons.lock, color: Colors.grey),
       hintText: 'Enter your password',
       textInputAction: TextInputAction.done,
@@ -139,8 +149,30 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget _buildLoginButton() {
     return SignInButton(
       onPressed: () {
-        Navigator.pushReplacementNamed(context, '/dashboard');
+        // For demo purposes, we'll extract username from email
+        // In real app, this would come from authentication response
+        final email = _emailController.text.trim();
+        final username = email.split('@')[0];
+        final name = username.capitalize();
+
+        // Create user data object
+        final userData = UserData(name: name, username: username, email: email);
+
+        // Navigate to dashboard with user data
+        Navigator.pushReplacementNamed(
+          context,
+          '/dashboard',
+          arguments: userData,
+        );
       },
     );
+  }
+}
+
+// Extension to capitalize first letter of string
+extension StringExtension on String {
+  String capitalize() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1);
   }
 }

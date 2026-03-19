@@ -11,11 +11,13 @@ import '../Drawer_List_Contents/expansion_manufacturing_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../main.dart';
+import '../Screens/login_screen.dart';
 
 class CustomDrawer extends StatefulWidget {
   final String currentRoute;
+  final UserData? userData;
 
-  const CustomDrawer({super.key, required this.currentRoute});
+  const CustomDrawer({super.key, required this.currentRoute, this.userData});
 
   @override
   State<CustomDrawer> createState() => _CustomDrawerState();
@@ -232,20 +234,11 @@ class _CustomDrawerState extends State<CustomDrawer>
                       color: Theme.of(context).colorScheme.onSurface,
                     ),
                     onPressed: () {
-                      showDialog(
-                        context: context,
-                        builder: (context) => AlertDialog(
-                          title: Text('Profile'),
-                          content: Text(
-                            'Profile information will be displayed here.',
-                          ),
-                          actions: [
-                            TextButton(
-                              onPressed: () => Navigator.pop(context),
-                              child: Text('Close'),
-                            ),
-                          ],
-                        ),
+                      Navigator.pop(context); // Close the drawer first
+                      Navigator.pushNamed(
+                        context,
+                        '/profile',
+                        arguments: widget.userData,
                       );
                     },
                     tooltip: 'Profile',
